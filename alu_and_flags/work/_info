@@ -1,0 +1,391 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dD:/AbeerD/College/third year/VLSI_content/vlsi_modelsim/Lab6
+Ealsu
+Z0 w1640364741
+Z1 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z4 dD:/AbeerD/College/third year/Computer Architecture/project/code
+Z5 8D:/AbeerD/College/third year/Computer Architecture/project/code/ALSU.vhd
+Z6 FD:/AbeerD/College/third year/Computer Architecture/project/code/ALSU.vhd
+l0
+L5
+V@8Qhc5Q^kRzWz<LTW^KCE0
+!s100 _QUhbgM`IA[1@GdRR3N^j2
+Z7 OV;C;10.5b;63
+32
+Z8 !s110 1640364764
+!i10b 1
+Z9 !s108 1640364764.000000
+Z10 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/AbeerD/College/third year/Computer Architecture/project/code/ALSU.vhd|
+Z11 !s107 D:/AbeerD/College/third year/Computer Architecture/project/code/ALSU.vhd|
+!i113 1
+Z12 o-work work -2002 -explicit
+Z13 tExplicit 1 CvgOpt 0
+Amymodel
+R1
+R2
+R3
+DEx4 work 4 alsu 0 22 @8Qhc5Q^kRzWz<LTW^KCE0
+l77
+L19
+V;AGfVbVKZ@TN4He=QDQA21
+!s100 6a:jWVT`Y7=R]SVShLKP;2
+R7
+32
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Eflags
+Z14 w1640365465
+R1
+R2
+R3
+R4
+Z15 8D:/AbeerD/College/third year/Computer Architecture/project/code/flags.vhd
+Z16 FD:/AbeerD/College/third year/Computer Architecture/project/code/flags.vhd
+l0
+L5
+Vl>04:<A9l57G2YgNIAA0G2
+!s100 aW5OE0NC>EN6>TT?IjF7d3
+R7
+32
+Z17 !s110 1640365467
+!i10b 1
+Z18 !s108 1640365467.000000
+Z19 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/AbeerD/College/third year/Computer Architecture/project/code/flags.vhd|
+Z20 !s107 D:/AbeerD/College/third year/Computer Architecture/project/code/flags.vhd|
+!i113 1
+R12
+R13
+Aa_flags
+R1
+R2
+R3
+DEx4 work 5 flags 0 22 l>04:<A9l57G2YgNIAA0G2
+l20
+L16
+VodE=7YHUT]eYJ>iFTYYEe3
+!s100 [0I79TLEb30NKW0NIMhdn3
+R7
+32
+R17
+!i10b 1
+R18
+R19
+R20
+!i113 1
+R12
+R13
+Emux_2to1_top
+Z21 w1640365745
+R2
+R3
+R4
+Z22 8D:/AbeerD/College/third year/Computer Architecture/project/code/mux.vhd
+Z23 FD:/AbeerD/College/third year/Computer Architecture/project/code/mux.vhd
+l0
+L4
+V^83;R4Tl1I_0Hc?Q<GjHk0
+!s100 9XHJT6:gIH6n8LChLJkzF2
+R7
+32
+Z24 !s110 1640365757
+!i10b 1
+Z25 !s108 1640365757.000000
+Z26 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/AbeerD/College/third year/Computer Architecture/project/code/mux.vhd|
+Z27 !s107 D:/AbeerD/College/third year/Computer Architecture/project/code/mux.vhd|
+!i113 1
+R12
+R13
+Abehavioral
+R2
+R3
+Z28 DEx4 work 12 mux_2to1_top 0 22 ^83;R4Tl1I_0Hc?Q<GjHk0
+l12
+L11
+Z29 V>j[PUT:_bQl5[=m]aS]Ki0
+Z30 !s100 ln8GT3LeQ9fcg;>];?9j>3
+R7
+32
+R24
+!i10b 1
+R25
+R26
+R27
+!i113 1
+R12
+R13
+En_bit_full_adder
+Z31 w1640331596
+R2
+R3
+R4
+Z32 8D:/AbeerD/College/third year/Computer Architecture/project/code/n_bit_full_adder.vhd
+Z33 FD:/AbeerD/College/third year/Computer Architecture/project/code/n_bit_full_adder.vhd
+l0
+L4
+VlhZX^2ILX0<W>UeLPSBMc3
+!s100 <GgCIKWJSDB^@JLlJWlFA3
+R7
+32
+Z34 !s110 1640331779
+!i10b 1
+Z35 !s108 1640331779.000000
+Z36 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/AbeerD/College/third year/Computer Architecture/project/code/n_bit_full_adder.vhd|
+Z37 !s107 D:/AbeerD/College/third year/Computer Architecture/project/code/n_bit_full_adder.vhd|
+!i113 1
+R12
+R13
+Aa_n_bit_fa
+R2
+R3
+DEx4 work 16 n_bit_full_adder 0 22 lhZX^2ILX0<W>UeLPSBMc3
+l25
+L15
+Vhc?@@DfZ5@FhlC;J;^>ZZ1
+!s100 nCZ46A8bHl24hnj1jN2T`0
+R7
+32
+R34
+!i10b 1
+R35
+R36
+R37
+!i113 1
+R12
+R13
+Eone_bit_full_adder
+Z38 w1640331480
+R2
+R3
+R4
+Z39 8D:/AbeerD/College/third year/Computer Architecture/project/code/one_bit_full_adder.vhd
+Z40 FD:/AbeerD/College/third year/Computer Architecture/project/code/one_bit_full_adder.vhd
+l0
+L4
+Vg^0kz9aC9HZoBh8EXOjBP0
+!s100 B?CUYT9S?`3iV[bX6;`zU1
+R7
+32
+Z41 !s110 1640331774
+!i10b 1
+Z42 !s108 1640331773.000000
+Z43 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/AbeerD/College/third year/Computer Architecture/project/code/one_bit_full_adder.vhd|
+Z44 !s107 D:/AbeerD/College/third year/Computer Architecture/project/code/one_bit_full_adder.vhd|
+!i113 1
+R12
+R13
+Aa_1_bit_fa
+R2
+R3
+DEx4 work 18 one_bit_full_adder 0 22 g^0kz9aC9HZoBh8EXOjBP0
+l15
+L14
+VFz56z]obhfJKOW?ARa7IG0
+!s100 gnILbKYE;[3cl^g;g=0lG1
+R7
+32
+R41
+!i10b 1
+R42
+R43
+R44
+!i113 1
+R12
+R13
+Eparta
+Z45 w1640331659
+R2
+R3
+R4
+Z46 8D:/AbeerD/College/third year/Computer Architecture/project/code/partA.vhd
+Z47 FD:/AbeerD/College/third year/Computer Architecture/project/code/partA.vhd
+l0
+L4
+V7d_RiI:U1;_1]_U8oUeUU0
+!s100 I<nWSI?Q;KYXIzZNZQR3P0
+R7
+32
+Z48 !s110 1640331785
+!i10b 1
+Z49 !s108 1640331785.000000
+Z50 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/AbeerD/College/third year/Computer Architecture/project/code/partA.vhd|
+Z51 !s107 D:/AbeerD/College/third year/Computer Architecture/project/code/partA.vhd|
+!i113 1
+R12
+R13
+Aa_parta
+R2
+R3
+DEx4 work 5 parta 0 22 7d_RiI:U1;_1]_U8oUeUU0
+l35
+L19
+VY:E>dL;P=ec2=CNoP_]2g1
+!s100 TEl@]`neP6@UHVnFLSbN[1
+R7
+32
+R48
+!i10b 1
+R49
+R50
+R51
+!i113 1
+R12
+R13
+Epartb
+Z52 w1640331676
+R2
+R3
+R4
+Z53 8D:/AbeerD/College/third year/Computer Architecture/project/code/partB.vhd
+Z54 FD:/AbeerD/College/third year/Computer Architecture/project/code/partB.vhd
+l0
+L4
+V<ghzaaCCaFBo^VgF5X04M2
+!s100 b55jFU27]9n1KlMmz]1_^0
+R7
+32
+Z55 !s110 1640331788
+!i10b 1
+Z56 !s108 1640331788.000000
+Z57 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/AbeerD/College/third year/Computer Architecture/project/code/partB.vhd|
+Z58 !s107 D:/AbeerD/College/third year/Computer Architecture/project/code/partB.vhd|
+!i113 1
+R12
+R13
+Amymodel
+R2
+R3
+DEx4 work 5 partb 0 22 <ghzaaCCaFBo^VgF5X04M2
+l18
+L17
+Vh>7Zj3h3ea?EBhU^D_=GF2
+!s100 4]]9OlI=M:SaCI_PR5i<f0
+R7
+32
+R55
+!i10b 1
+R56
+R57
+R58
+!i113 1
+R12
+R13
+Epartc
+Z59 w1640331697
+R1
+R2
+R3
+R4
+Z60 8D:/AbeerD/College/third year/Computer Architecture/project/code/partC.vhd
+Z61 FD:/AbeerD/College/third year/Computer Architecture/project/code/partC.vhd
+l0
+L5
+VGAiOh9l[ZE5mR^U;nQ]bA2
+!s100 Jc403_e058WD4I1>F07i[2
+R7
+32
+Z62 !s110 1640331792
+!i10b 1
+Z63 !s108 1640331792.000000
+Z64 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/AbeerD/College/third year/Computer Architecture/project/code/partC.vhd|
+Z65 !s107 D:/AbeerD/College/third year/Computer Architecture/project/code/partC.vhd|
+!i113 1
+R12
+R13
+Amymodel
+R1
+R2
+R3
+DEx4 work 5 partc 0 22 GAiOh9l[ZE5mR^U;nQ]bA2
+l20
+L19
+VgScT`4nC3XJXMZHg7QXQb0
+!s100 H^2SS_T7[2icOdjINaP;D2
+R7
+32
+R62
+!i10b 1
+R63
+R64
+R65
+!i113 1
+R12
+R13
+Epartd
+Z66 w1640331717
+R1
+R2
+R3
+R4
+Z67 8D:/AbeerD/College/third year/Computer Architecture/project/code/partD.vhd
+Z68 FD:/AbeerD/College/third year/Computer Architecture/project/code/partD.vhd
+l0
+L5
+VVGeizRJNN1P5@W>[fYG>C0
+!s100 _E9C1MQmTVPa@UD@W=e6F2
+R7
+32
+Z69 !s110 1640331795
+!i10b 1
+Z70 !s108 1640331795.000000
+Z71 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/AbeerD/College/third year/Computer Architecture/project/code/partD.vhd|
+Z72 !s107 D:/AbeerD/College/third year/Computer Architecture/project/code/partD.vhd|
+!i113 1
+R12
+R13
+Amymodel
+R1
+R2
+R3
+DEx4 work 5 partd 0 22 VGeizRJNN1P5@W>[fYG>C0
+l20
+L19
+VHNkoN2zg[^mC9Mfdn7`SU0
+!s100 ?VB@aiLkz;ei0ZNN=mh?42
+R7
+32
+R69
+!i10b 1
+R70
+R71
+R72
+!i113 1
+R12
+R13
+Epc
+w1640364262
+R1
+R2
+R3
+R4
+8D:/AbeerD/College/third year/Computer Architecture/project/code/pc.vhd
+FD:/AbeerD/College/third year/Computer Architecture/project/code/pc.vhd
+l0
+L5
+VUJ1VW:FR@JJ`YR:Tn@Hb^3
+!s100 ?;b=Dfiof>DU;:g@=PgL;0
+R7
+32
+!s110 1640365753
+!i10b 1
+!s108 1640365753.000000
+!s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/AbeerD/College/third year/Computer Architecture/project/code/pc.vhd|
+!s107 D:/AbeerD/College/third year/Computer Architecture/project/code/pc.vhd|
+!i113 1
+R12
+R13
