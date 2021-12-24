@@ -4,6 +4,7 @@ USE IEEE.numeric_std.all;
 
 ENTITY ram IS
 	PORT(
+		clk : IN std_logic;
 		we  : IN std_logic;
 		address : IN  std_logic_vector(19 DOWNTO 0);
 		datain  : IN  std_logic_vector(31 DOWNTO 0);
@@ -16,12 +17,14 @@ ARCHITECTURE syncrama OF ram IS
 	SIGNAL ram : ram_type;
 	
 	BEGIN
-		PROCESS(address) IS
+		PROCESS(clk) IS
 			BEGIN
+				IF rising_edge(clk) THEN  
 					IF we = '1' THEN
 						ram(to_integer(unsigned(address))) <= datain(31 downto 16);
 						ram(to_integer(unsigned(address))+1) <= datain(15 downto 0);
 					END IF;
+				END IF;
 		END PROCESS;
 		dataout(31 downto 16) <= ram(to_integer(unsigned(address)));
 		dataout(15 downto 0) <= ram(to_integer(unsigned(address))+1);

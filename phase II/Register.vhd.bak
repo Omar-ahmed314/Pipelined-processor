@@ -11,9 +11,9 @@ ENTITY DFF IS
 GENERIC ( n : INTEGER := 32 );
 
 	PORT( 
-			d: in std_logic_vector(n - 1 downto 0);
+			d: in std_logic_vector(15 downto 0);
 			clk,reset,en : IN std_logic;
-			q : OUT std_logic_vector(n - 1 downto 0)
+			q : OUT std_logic_vector(15 downto 0)
 		);
 END DFF;
 -- <----- End ----->

@@ -6,6 +6,7 @@ entity fetch is
 port(
 ip_in : in std_logic_vector(19 downto 0);
 ip_out: out std_logic_vector(19 downto 0);
+clk: in std_logic;
 instruction : out std_logic_vector(31 downto 0));
 
 end entity;
@@ -14,6 +15,7 @@ Architecture struct of fetch is
 
 COMPONENT ram IS
 	PORT(
+		clk : IN std_logic;
 		we  : IN std_logic;
 		address : IN  std_logic_vector(19 DOWNTO 0);
 		datain  : IN  std_logic_vector(31 DOWNTO 0);
@@ -45,11 +47,19 @@ signal addedvalue: std_logic_vector(19 downto 0);
 signal instructionread: std_logic_vector(31 downto 0);
 begin
 	
-	r: ram PORT MAP('0', ip_in, temp, instructionread);
+
+	r: ram PORT MAP(clk, '0', ip_in, temp, instructionread);
 	instruction <= instructionread;
 	v: fetchaddedvalue PORT MAP(instructionread(31 downto 27), addedvalue);
 	a: n_bit_adder GENERIC MAP(20) PORT MAP(ip_in,addedvalue, '0', couttemp, tempadder);
 	
-	ip_out<=tempadder;
-		
+	
+	PROCESS(clk) IS
+		BEGIN
+			IF rising_edge(clk) THEN  
+				ip_out<=tempadder;
+			END IF;
+	END PROCESS;
+
+
 end Architecture;

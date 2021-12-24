@@ -13,8 +13,7 @@ GENERIC ( n : INTEGER := 32 );
 		opCode: in std_logic_vector(4 downto 0);
 		
 		brachEn, flagChange: out std_logic;
-		is_Imm, ST_or_BNE, WB_EN, MEM_R_EN, MEM_W_EN,NO_OP: out std_logic;
-		alu_selection: out std_logic_vector(3 downto 0)
+		is_Imm, ST_or_BNE, WB_EN, MEM_R_EN, MEM_W_EN,NO_OP: out std_logic
 		);
 end controlUnit;
 -- /*=== End ====*/ --
@@ -42,7 +41,13 @@ begin
 
 			if(opCode = "00000" ) then
 				NO_OP <= '1';
-				alu_selection <= "0000";
+
+-- -----------------------------------
+-- Enable change flags signal
+--------------------------------------
+
+			elsif(opCode = "00010" or opCode = "00011" or opCode = "00100") then
+				flagChange <= '1';
 			end if;	
 ------------------------------------------------------------------------------------------------------
 -- preventing any writes to the register file or the memory
