@@ -11,9 +11,8 @@ GENERIC ( n : INTEGER := 32 );
 	port(
 		hazard_detected: in std_logic;
 		opCode: in std_logic_vector(4 downto 0);
-		
 		brachEn, flagChange: out std_logic;
-		is_Imm, ST_or_BNE, WB_EN, MEM_R_EN, MEM_W_EN,NO_OP: out std_logic;
+		is_Imm, ST_or_BNE, WB_EN, MEM_R_EN, MEM_W_EN,NO_OP, setC, inEN, outEN: out std_logic;
 		alu_selection: out std_logic_vector(3 downto 0)
 		);
 end controlUnit;
@@ -35,7 +34,9 @@ begin
 			MEM_R_EN <= '0';
 			MEM_W_EN <= '0';
 			NO_OP <= '0';
-			
+			setC <= '0';
+			inEN <= '0';
+			outEN <= '0';
 -- -----------------------------------
 -- Enable No operation signal
 --------------------------------------
@@ -43,6 +44,29 @@ begin
 			if(opCode = "00000" ) then
 				NO_OP <= '1';
 				alu_selection <= "0000";
+			elsif(opCode = "00001") then
+				alu_selection <= "0000";
+				NO_OP <= '1';
+			elsif(opCode = "00010") then
+				alu_selection <= "0000";
+				flagChange <= '1';
+				setC <='1';
+			elsif(opCode = "00011") then
+				alu_selection <= "0111";
+				flagChange <= '1';
+				WB_EN <= '1';
+			elsif(opCode = "00100") then
+				alu_selection <= "0000";
+				flagChange <= '1';
+				WB_EN <= '1';
+			elsif(opCode = "00101") then
+				alu_selection <= "0000";
+				outEN <= '1';	
+			elsif(opCode = "00110") then
+				alu_selection <= "0000";
+				WB_EN <= '1';
+				inEN <= '1';
+
 			end if;	
 ------------------------------------------------------------------------------------------------------
 -- preventing any writes to the register file or the memory

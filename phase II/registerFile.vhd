@@ -48,7 +48,7 @@ SIGNAL regFile : reg_type ;
 
 begin
 	
-	re <= not writeEn;
+	re <= '1';
 
 	decRead1: decoder generic map (n) port map (src1,re,decROut1);
 	decRead2: decoder generic map (n) port map (src2,re,decROut2);
