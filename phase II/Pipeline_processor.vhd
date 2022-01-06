@@ -1,17 +1,27 @@
+-- /*========= /// <===> Import libraries <===> /// ==========*/ --
 Library ieee;
 use ieee.std_logic_1164.all;
+-- /*=== End ====*/ --
 
+-- /*========= /// <===> Entity OF Pipeline Processor <===> /// ==========*/ --
 entity Pipeline_processor is
-port(clk, reset: in std_logic);
-
+	port(
+		clk, reset: in std_logic
+		);
 end entity;
+-- /*=== End ====*/ --
 
+-- /*========= /// <===> Architecture OF Pipeline Processor <===> /// ==========*/ --
 architecture arch1 of Pipeline_processor is
+
+
+-- /*========= /// <===> Components OF Pipeline Processor <===> /// ==========*/ --
 component fetch is 
-port(
-ip_in : in std_logic_vector(19 downto 0);
-ip_out: out std_logic_vector(19 downto 0);
-instruction : out std_logic_vector(31 downto 0));
+	port(
+		ip_in : in std_logic_vector(19 downto 0);
+		ip_out: out std_logic_vector(19 downto 0);
+		instruction : out std_logic_vector(31 downto 0)
+	);
 end component;
 
 component DFF IS 
@@ -30,7 +40,7 @@ GENERIC ( n : INTEGER := 32 );
 		we, clk, reset: in std_logic;
 		instr: in std_logic_vector(n-1 downto 0); 
 		output: out std_logic_vector(n - 1 downto 0)
-		);
+	);
 end component;
 
 component registerFile is
@@ -40,7 +50,7 @@ GENERIC ( n : INTEGER := 32 );
 		src1, src2, dest: in std_logic_vector(2 downto 0);
 		writeVal: in std_logic_vector(15 downto 0);
 		out1, out2: out std_logic_vector(15 downto 0)
-		);
+	);
 end component;
 
 component controlUnit is
@@ -52,7 +62,7 @@ GENERIC ( n : INTEGER := 32 );
 		brachEn, flagChange: out std_logic;
 		is_Imm, ST_or_BNE, WB_EN, MEM_R_EN, MEM_W_EN,NO_OP, setC, inEN, outEN: out std_logic;
 		alu_selection: out std_logic_vector(3 downto 0)
-		);
+	);
 end component;
 
 component IDEX is
@@ -65,22 +75,21 @@ GENERIC ( n : INTEGER := 32 );
 		Rd_address: in std_logic_vector(2 downto 0);
 		control_signls: in std_logic_vector(14 downto 0);
 		output: out std_logic_vector(49 downto 0)
-		);
+	);
 end component;
 
 component ALSU is
 generic(n: integer:= 16);
-port(
-a : in std_logic_vector(n-1 downto 0);
-b : in std_logic_vector(n-1 downto 0);
---Cin : in std_logic;
-S : in std_logic_vector(3 downto 0);
+	port(
+		a : in std_logic_vector(n-1 downto 0);
+		b : in std_logic_vector(n-1 downto 0);
+		--Cin : in std_logic;
+		S : in std_logic_vector(3 downto 0);
 
-f_alu : out std_logic_vector(n-1 downto 0);
-coutALU : out std_logic;
-no_operation: in std_logic
-);
-
+		f_alu : out std_logic_vector(n-1 downto 0);
+		coutALU : out std_logic;
+		no_operation: in std_logic
+	);
 end component;
 
 component MEMWB is
@@ -94,22 +103,24 @@ GENERIC ( n : INTEGER := 16 );
 		isMemory: in std_logic;
 		controlSignals: in std_logic_vector(14 downto 0);
 		output: out std_logic_vector(50 downto 0)
-		);
+	);
 end component;
 
 component writeback is 
 
-port(
-controlSignals: in std_logic_vector(14 downto 0);
-dataAlu : in std_logic_vector(15 downto 0);
-dataMemory : in std_logic_vector(15 downto 0);
-reg_address: in std_logic_vector(2 downto 0);
-isMemory: in std_logic;
-address_out: out std_logic_vector(2 downto 0);
-outdata: out std_logic_vector(15 downto 0);
-wb_enable_out: out std_logic);
+	port(
+		controlSignals: in std_logic_vector(14 downto 0);
+		dataAlu : in std_logic_vector(15 downto 0);
+		dataMemory : in std_logic_vector(15 downto 0);
+		reg_address: in std_logic_vector(2 downto 0);
+		isMemory: in std_logic;
+		address_out: out std_logic_vector(2 downto 0);
+		outdata: out std_logic_vector(15 downto 0);
+		wb_enable_out: out std_logic
+	);
 
 end component;
+-- /*=== End ====*/ --
 
 -- fetch stage signals --
 signal fetchStage_ip_instMemory: std_logic_vector(19 downto 0);
@@ -160,3 +171,4 @@ wb_Stage : writeback port map(MEM_WB_OUT(50 downto 36),MEM_WB_OUT(35 downto 20),
 
 
 end arch1;
+-- /*=== End ====*/ --
