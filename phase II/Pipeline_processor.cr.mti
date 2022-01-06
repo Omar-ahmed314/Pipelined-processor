@@ -1,14 +1,4 @@
-{E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/ID_EX.vhd} {1 {vcom -work work -2002 -explicit -stats=none {E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\ID_EX.vhd}
-Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package std_logic_arith
--- Loading package STD_LOGIC_SIGNED
--- Compiling entity IDEX
--- Compiling architecture IDEX of IDEX
-
-} {} {}} {E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/controlUnit.vhd} {1 {vcom -work work -2002 -explicit -stats=none {E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\controlUnit.vhd}
+{E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/controlUnit.vhd} {1 {vcom -work work -2002 -explicit -stats=none {E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\controlUnit.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -18,7 +8,7 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Compiling entity controlUnit
 -- Compiling architecture controlUnit of controlUnit
 
-} {} {}} {E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/partB.vhd} {1 {vcom -work work -2002 -explicit -stats=none {E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\partB.vhd}
+} {} {}} {E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/partB.vhd} {1 {vcom -work work -2002 -explicit -stats=none {E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/partB.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -26,7 +16,17 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Compiling entity partB
 -- Compiling architecture myModel of partB
 
-} {} {}} {E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/partC.vhd} {1 {vcom -work work -2002 -explicit -stats=none {E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\partC.vhd}
+} {} {}} {E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/ID_EX.vhd} {1 {vcom -work work -2002 -explicit -stats=none {E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/ID_EX.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_SIGNED
+-- Compiling entity IDEX
+-- Compiling architecture IDEX of IDEX
+
+} {} {}} {E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/partC.vhd} {1 {vcom -work work -2002 -explicit -stats=none {E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/partC.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -52,7 +52,7 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Compiling entity partD
 -- Compiling architecture myModel of partD
 
-} {} {}} {E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/IF_ID.vhd} {1 {vcom -work work -2002 -explicit -stats=none {E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\IF_ID.vhd}
+} {} {}} {E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/IF_ID.vhd} {1 {vcom -work work -2002 -explicit -stats=none {E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/IF_ID.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -62,13 +62,21 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Compiling entity IFID
 -- Compiling architecture IFID of IFID
 
-} {} {}} {E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/writeback.vhd} {1 {vcom -work work -2002 -explicit -stats=none {E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\writeback.vhd}
+} {} {}} {E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/writeback.vhd} {1 {vcom -work work -2002 -explicit -stats=none {E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/writeback.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
 -- Compiling entity writeback
 -- Compiling architecture struct of writeback
+
+} {} {}} {E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/memory_stage.vhd} {1 {vcom -work work -2002 -explicit -stats=none {E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\memory_stage.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity memoryStage
+-- Compiling architecture struct of memoryStage
 
 } {} {}} {E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/forward_unit.vhd} {1 {vcom -work work -2002 -explicit -stats=none {E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/forward_unit.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
@@ -86,7 +94,24 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Compiling entity decoder
 -- Compiling architecture arch_decoder of decoder
 
-} {} {}} {E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/registerFile.vhd} {1 {vcom -work work -2002 -explicit -stats=none {E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\registerFile.vhd}
+} {} {}} {E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/falling_edge_register.vhd} {1 {vcom -work work -2002 -explicit -stats=none {E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\falling_edge_register.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity NDFF
+-- Compiling architecture arch1 of NDFF
+
+} {} {}} {E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/flags.vhd} {1 {vcom -work work -2002 -explicit -stats=none {E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\flags.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity flags
+-- Compiling architecture a_flags of flags
+
+} {} {}} {E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/registerFile.vhd} {1 {vcom -work work -2002 -explicit -stats=none {E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/registerFile.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -104,15 +129,6 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Loading package std_logic_1164
 -- Compiling entity DFF
 -- Compiling architecture DFF of DFF
-
-} {} {}} {E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/flags.vhd} {1 {vcom -work work -2002 -explicit -stats=none {E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/flags.vhd}
-Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Compiling entity flags
--- Compiling architecture a_flags of flags
 
 } {} {}} {E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/nbitadder.vhd} {1 {vcom -work work -2002 -explicit -stats=none {E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/nbitadder.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
@@ -191,15 +207,7 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Compiling entity fetch
 -- Compiling architecture struct of fetch
 
-} {} {}} {E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/Pipeline_processor.vhd} {1 {vcom -work work -2002 -explicit -stats=none {E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\Pipeline_processor.vhd}
-Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity Pipeline_processor
--- Compiling architecture arch1 of Pipeline_processor
-
-} {} {}} {E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/ALSU.vhd} {1 {vcom -work work -2002 -explicit -stats=none {E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\ALSU.vhd}
+} {} {}} {E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/ALSU.vhd} {1 {vcom -work work -2002 -explicit -stats=none {E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/ALSU.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -216,13 +224,13 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Compiling entity decoder
 -- Compiling architecture decoder of decoder
 
-} {} {}} {E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/partA.vhd} {2 {vcom -work work -2002 -explicit -stats=none {E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\partA.vhd}
+} {} {}} {E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/partA.vhd} {2 {vcom -work work -2002 -explicit -stats=none {E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/partA.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
 -- Compiling entity partA
 -- Compiling architecture a_partA of partA
-** Warning: E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\partA.vhd(37): (vcom-1074) Non-locally static OTHERS choice is allowed only if it is the only choice of the only association.
+** Warning: E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/partA.vhd(37): (vcom-1074) Non-locally static OTHERS choice is allowed only if it is the only choice of the only association.
 
 } {} {}}

@@ -30,7 +30,7 @@ begin
 	if(reset = '1') then
 		output <= (others => '0');
 
-	elsif (rising_edge(clk)) then		
+	elsif (falling_edge(clk)) then		
 		if(we = '1') then
 			output <= controlSignals & alu_data(15 downto 0) & mem_data(15 downto 0) & dest_address(2 downto 0) & isMemory;
 		end if;
