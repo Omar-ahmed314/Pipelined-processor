@@ -138,6 +138,10 @@ signal IDEX_Out: std_logic_vector(49 downto 0);
 -- ALU stage --
 signal ALU_out: std_logic_vector(15 downto 0);
 signal ALU_cout: std_logic;
+signal zero_enable: std_logic;
+signal carry_enable: std_logic;
+signal negative_enable: std_logic;
+signal CCR: std_logic_vector(2 downto 0);
 
 -- WB stage signals --
 signal MEM_WB_OUT: std_logic_vector(50 downto 0);
@@ -164,9 +168,12 @@ id_ex: IDEX generic map(16) port map('1', clk, reset,decodeStage_registerFileOut
 
 -- ALU stage --
 ALSU_Stage : ALSU generic map(16) port map(IDEX_Out(15 downto 0), IDEX_Out(31 downto 16), IDEX_Out(46 downto 43),ALU_out,ALU_cout,'0');
+flags_stage : flags port map(ALU_out, ALU_cout, zero_enable, carry_enable, negative_enable, CCR);
+
+-- mem stage --
 mem_wb : MEMWB generic map(16) port map('1', clk, reset, ALU_out, "1010101010101010", IDEX_Out(49 downto 47), '0', IDEX_Out(46 downto 32), MEM_WB_OUT  );
--- mem stage
--- WB stage
+
+-- WB stage --
 wb_Stage : writeback port map(MEM_WB_OUT(50 downto 36),MEM_WB_OUT(35 downto 20), MEM_WB_OUT(19 downto 4), MEM_WB_OUT(3 downto 1), MEM_WB_OUT(0), writeBackStage_IM_IWB_registerFile_dataAddress, writeBackStage_IM_IWB_registerFile_writeData, wb_enable );
 
 
