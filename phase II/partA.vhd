@@ -30,7 +30,7 @@ end component n_bit_full_adder;
 signal f0,f1,f2,f3,f4,f5: std_logic_vector(n-1 downto 0);
 signal co0,co1,co2,co3,co4,co5: std_logic;
 signal b_dash, a_dash: std_logic_vector(n-1 downto 0);
---signal cin_dash: std_logic;
+signal cin_dash: std_logic;
 
 begin
 
@@ -46,9 +46,9 @@ b_dash <= (0 => '1', Others => '0') when S(1)='0' and S(0)='0' --and cin='0'
 a_dash <= (Others => '0') when S(1)='1' and S(0)='1' --and cin='1'
       else a;
 
---cin_dash <= '0' when S(1)='1' and S(0)='1' and cin='1'
-      --else cin;
+cin_dash <= '1' when S(1)='1' and S(0)='0'
+      else '0';
 
-u: n_bit_full_adder generic map(16) port map(a_dash,b_dash,'0',f,cout);
+u: n_bit_full_adder generic map(16) port map(a_dash,b_dash,cin_dash,f,cout);
 
 end architecture a_partA;

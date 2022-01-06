@@ -54,6 +54,7 @@ sim:/pipeline_processor/execution_stage_output \
 sim:/pipeline_processor/MEM_WB_OUT \
 sim:/pipeline_processor/writeBackStage_IM_IWB_registerFile_dataAddress \
 sim:/pipeline_processor/writeBackStage_IM_IWB_registerFile_writeData \
+sim:/pipeline_processor/decode_execute_source2 \
 sim:/pipeline_processor/wb_enable
 force -freeze sim:/pipeline_processor/clk 0 0, 1 {50 ps} -r 100
 force -freeze sim:/pipeline_processor/reset 1 0
@@ -63,19 +64,8 @@ run
 #    Time: 0 ps  Iteration: 0  Instance: /pipeline_processor/fetch_stage/inmem
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 0 ps  Iteration: 0  Instance: /pipeline_processor/fetch_stage/inmem
-mem load -filltype value -filldata 0011000000000000 -fillradix symbolic /pipeline_processor/fetch_stage/inmem/ram(0)
-mem load -filltype value -filldata 0000000000000000 -fillradix symbolic /pipeline_processor/fetch_stage/inmem/ram(1)
-mem load -filltype value -filldata {0000000000000000 } -fillradix symbolic /pipeline_processor/fetch_stage/inmem/ram(2)
-mem load -filltype value -filldata {0000000000000000  } -fillradix symbolic /pipeline_processor/fetch_stage/inmem/ram(3)
-mem load -filltype value -filldata 0010100000000000 -fillradix symbolic /pipeline_processor/fetch_stage/inmem/ram(3)
-mem load -filltype value -filldata {0010100000000000 } -fillradix symbolic /pipeline_processor/fetch_stage/inmem/ram(4)
-mem load -filltype value -filldata {0000000000000000 } -fillradix symbolic /pipeline_processor/fetch_stage/inmem/ram(3)
+mem load -filltype value -filldata 0110000000000011 -fillradix symbolic /pipeline_processor/fetch_stage/inmem/ram(0)
+mem load -filltype value -filldata 1110000110000011 -fillradix symbolic /pipeline_processor/fetch_stage/inmem/ram(1)
 force -freeze sim:/pipeline_processor/reset 0 0
-run
-run
-run
-run
-run
-run
 run
 run

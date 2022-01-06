@@ -63,10 +63,12 @@ begin
 			elsif(opCode = "00101") then -- OUT
 				alu_selection <= "0000";
 				outEN <= '1';	
+				NO_OP <= '1';
 			elsif(opCode = "00110") then -- IN
 				alu_selection <= "0000";
 				WB_EN <= '1';
 				inEN <= '1';
+				NO_OP <= '1';
 
 --------------------------------------------------------------------------------
 -- ------------------------ Two Operands Signals Handling ----------------------

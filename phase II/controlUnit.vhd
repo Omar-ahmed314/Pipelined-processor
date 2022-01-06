@@ -75,22 +75,22 @@ begin
 --------------------------------------------------------------------------------
 
 			elsif(opCode = "01000") then -- Mov
-				alu_selection <= "ZZZZ";
+				alu_selection <= "0101";
 				WB_EN <= '1';
 			elsif(opCode = "01001") then -- Add
-				alu_selection <= "ZZZZ";
+				alu_selection <= "0001";
 				flagChange <= '1';
 				WB_EN <= '1';
 			elsif(opCode = "01010") then -- Sub
-				alu_selection <= "ZZZZ";
+				alu_selection <= "0010";
 				flagChange <= '1';
 				WB_EN <= '1';
 			elsif(opCode = "01011") then -- AND
-				alu_selection <= "ZZZZ";
+				alu_selection <= "0100";
 				flagChange <= '1';
 				WB_EN <= '1';
-			elsif(opCode = "01100") then -- IAND
-				alu_selection <= "ZZZZ";
+			elsif(opCode = "01100") then -- IADD
+				alu_selection <= "0001";
 				flagChange <= '1';
 				WB_EN <= '1';
 				is_Imm <= '1';

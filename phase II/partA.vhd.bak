@@ -34,12 +34,12 @@ signal b_dash, a_dash: std_logic_vector(n-1 downto 0);
 
 begin
 
-b_dash <= (x"0001") when S(1)='0' and S(0)='0' --and cin='0'
+b_dash <= (0 => '1', Others => '0') when S(1)='0' and S(0)='0' --and cin='0'
        --else (Others => '0') when S(1)='0' and S(0)='0' --and cin='1'
        else b when S(1)='0' and S(0)='1' --and cin='0'
-       else b when S(1)='0' and S(0)='1' --and cin='1'
+       --else b when S(1)='0' and S(0)='1' --and cin='1'
        else not b when S(1)='1' and S(0)='0' --and --cin='0'
-       else not b when S(1)='1' and S(0)='0' --and cin='1'
+       --else not b when S(1)='1' and S(0)='0' --and cin='1'
        else (Others => '1') when S(1)='1' and S(0)='1' --and cin='0'
        else (Others => '0') when S(1)='1' and S(0)='1'; --and cin='1';
 

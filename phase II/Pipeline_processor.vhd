@@ -181,6 +181,7 @@ signal decodeStage_registerFileOut2_ID_IE: std_logic_vector(15 downto 0);
 signal hazardDetect: std_logic;
 signal controlSignals: std_logic_vector(14 downto 0);
 signal IDEX_Out: std_logic_vector(49 downto 0);
+signal decode_execute_source2: std_logic_vector(15 downto 0);
 
 -- ALU stage --
 signal ALU_out: std_logic_vector(15 downto 0);
@@ -214,7 +215,11 @@ hazardDetect <= '0';
 
 register_file: registerFile generic map(16) port map(clk, reset, wb_enable, decodeStage_IF_ID_out(26 downto 24), decodeStage_IF_ID_out(23 downto 21), writeBackStage_IM_IWB_registerFile_dataAddress, writeBackStage_IM_IWB_registerFile_writeData,decodeStage_registerFileOut1_ID_IE, decodeStage_registerFileOut2_ID_IE);
 controlU : controlUnit generic map(16) port map(hazardDetect, decodeStage_IF_ID_out(31 downto 27),controlSignals(0),controlSignals(1),controlSignals(2),controlSignals(3),controlSignals(4),controlSignals(5),controlSignals(6),controlSignals(7),controlSignals(8),controlSignals(9),controlSignals(10),controlSignals(14 downto 11));
-id_ex: IDEX generic map(16) port map('1', clk, reset,decodeStage_registerFileOut1_ID_IE,decodeStage_registerFileOut2_ID_IE, decodeStage_IF_ID_out(26 downto 24), controlSignals, IDEX_Out);
+
+decode_execute_source2 <= decodeStage_registerFileOut2_ID_IE when controlSignals(2) = '0'
+	else decodeStage_IF_ID_out(17 downto 2);
+
+id_ex: IDEX generic map(16) port map('1', clk, reset,decodeStage_registerFileOut1_ID_IE,decode_execute_source2, decodeStage_IF_ID_out(20 downto 18), controlSignals, IDEX_Out);
 
 -- ALU stage --
 ALSU_Stage : ALSU generic map(16) port map(IDEX_Out(15 downto 0), IDEX_Out(31 downto 16), IDEX_Out(46 downto 43),ALU_out,ALU_cout,'0');

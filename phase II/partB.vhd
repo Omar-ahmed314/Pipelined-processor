@@ -18,7 +18,7 @@ Architecture myModel of partB is
 begin
 f <= (a and b) when s0='0' and s1 ='0'
      else
-     (a or b) when s0='1' and s1 ='0'
+     a when s0='1' and s1 ='0'
      else
      (a xor b) when s0='0' and s1 ='1'
      else
