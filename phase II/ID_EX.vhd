@@ -13,8 +13,8 @@ GENERIC ( n : INTEGER := 16 );
 		bufferEn2, clk,reset: in std_logic;
 		Rs, Rt: in std_logic_vector(n-1 downto 0);
 		Rd_address: in std_logic_vector(2 downto 0);
-		control_signls: in std_logic_vector(14 downto 0);
-		output: out std_logic_vector(49 downto 0)
+		control_signls: in std_logic_vector(18 downto 0);
+		output: out std_logic_vector(53 downto 0)
 		);
 end IDEX;
 -- /*=== End ====*/ --
@@ -30,8 +30,8 @@ begin
 		
 		elsif(rising_edge(clk)) then		
 			if(bufferEn2 = '1') then
-				output (49 downto 47) <= Rd_address;
-				output(46 downto 32) <= control_signls;
+				output (53 downto 51) <= Rd_address;
+				output(50 downto 32) <= control_signls;
 				output(31 downto 16) <= Rs;
 				output(15 downto 0) <= Rt;
 			end if;

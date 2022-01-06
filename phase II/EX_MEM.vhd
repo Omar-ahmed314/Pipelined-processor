@@ -4,25 +4,22 @@ use ieee.std_logic_1164.all;
 use ieee.std_logic_signed.all;
 -- /*=== End ====*/ --
 
--- /*========= /// <===> Entity Of MEM - WB <===> /// ==========*/ --
-entity MEMWB is
+-- /*========= /// <===> Entity Of EX - MEM <===> /// ==========*/ --
+entity EXMEM is
 -- Generic OF Sign Extend --
 GENERIC ( n : INTEGER := 16 );
 
 	port( 
 		we, clk, reset: in std_logic;
-		alu_data: in std_logic_vector(n-1 downto 0); 
-		mem_data: in std_logic_vector(n-1 downto 0); 
+		alu_data: in std_logic_vector(n-1 downto 0);
 		dest_address:in std_logic_vector(2 downto 0);
-		isMemory: in std_logic;
 		controlSignals: in std_logic_vector(18 downto 0);
-		output: out std_logic_vector(54 downto 0)
 		);
-end MEMWB;
+end EXMEM;
 -- /*=== End ====*/ --
 
--- /*========= /// <===> Architecture Of MEM - WB <===> /// ==========*/ --
-architecture MEMWB of MEMWB is
+-- /*========= /// <===> Architecture Of EX - MEM  <===> /// ==========*/ --
+architecture EXMEM of EXMEM is
 begin
 
 	process(clk,reset)
@@ -32,7 +29,7 @@ begin
 
 	elsif (falling_edge(clk)) then		
 		if(we = '1') then
-			output <= controlSignals & alu_data(15 downto 0) & mem_data(15 downto 0) & dest_address(2 downto 0) & isMemory;
+			output <= ;
 		end if;
 	end if;	
 	end process;

@@ -13,7 +13,8 @@ GENERIC ( n : INTEGER := 32 );
 		opCode: in std_logic_vector(4 downto 0);
 		brachEn, flagChange: out std_logic;
 		is_Imm, ST_or_BNE, WB_EN, MEM_R_EN, MEM_W_EN, NO_OP, setC, inEN, outEN: out std_logic;
-		alu_selection: out std_logic_vector(3 downto 0)
+		alu_selection: out std_logic_vector(3 downto 0);
+		isStack, isPush, isStore, isFunction: in std_logic
 		);
 end controlUnit;
 -- /*=== End ====*/ --
@@ -37,7 +38,10 @@ begin
 			setC <= '0';
 			inEN <= '0';
 			outEN <= '0';
-
+			isStack<= '0'; 
+			isPush<= '0'; 
+			isStore<= '0'; 
+			isFunction<= '0';
 --------------------------------------------------------------------------------
 -- ------------------------ One Operand Signals Handling -----------------------
 --------------------------------------------------------------------------------
@@ -75,22 +79,22 @@ begin
 --------------------------------------------------------------------------------
 
 			elsif(opCode = "01000") then -- Mov
-				alu_selection <= "ZZZZ";
+				alu_selection <= "0101";
 				WB_EN <= '1';
 			elsif(opCode = "01001") then -- Add
-				alu_selection <= "ZZZZ";
+				alu_selection <= "0001";
 				flagChange <= '1';
 				WB_EN <= '1';
 			elsif(opCode = "01010") then -- Sub
-				alu_selection <= "ZZZZ";
+				alu_selection <= "0010";
 				flagChange <= '1';
 				WB_EN <= '1';
 			elsif(opCode = "01011") then -- AND
-				alu_selection <= "ZZZZ";
+				alu_selection <= "0100";
 				flagChange <= '1';
 				WB_EN <= '1';
-			elsif(opCode = "01100") then -- IAND
-				alu_selection <= "ZZZZ";
+			elsif(opCode = "01100") then -- IADD
+				alu_selection <= "0001";
 				flagChange <= '1';
 				WB_EN <= '1';
 				is_Imm <= '1';
@@ -100,25 +104,45 @@ begin
 -------------------------------------------------------------------------------------
 
 			elsif(opCode = "10000") then -- Push
-				alu_selection <= "ZZZZ";
+				alu_selection <= "0000";
+				NO_OP <= '1';
 				MEM_W_EN <= '1';
+				isStack<= '1'; 
+				isPush<= '1'; 
+				isStore<= '0'; 
+				isFunction<= '0';
 			elsif(opCode = "10001") then -- Pop
-				alu_selection <= "ZZZZ";
+				alu_selection <= "0000";
+				NO_OP <= '1';
 				MEM_R_EN <= '1';
+				isStack<= '1'; 
+				isPush<= '0'; 
+				isStore<= '0'; 
+				isFunction<= '0';
 				WB_EN <= '1';
-			elsif(opCode = "10010") then -- LDM
-				alu_selection <= "ZZZZ";
+			elsif(opCode = "10010") then -- LDM -----to be handled
+				alu_selection <= "0000";
+				NO_OP <= '1';
 				is_Imm <= '1';
 				WB_EN <= '1';
+	
 			elsif(opCode = "10011") then -- LDD
-				alu_selection <= "ZZZZ";
+				alu_selection <= "0001"; -----handle add sources
 				WB_EN <= '1';
 				is_Imm <= '1'; -- Think Twice --
+				isStack<= '0'; 
+				isPush<= '0'; 
+				isStore<= '0'; 
+				isFunction<= '0';
 			elsif(opCode = "10100") then -- STD
-				alu_selection <= "ZZZZ";
+				alu_selection <= "0001"; -----handle add sources
 				ST_or_BNE <= '1';
 				is_Imm <= '1';
 				MEM_W_EN <= '1';
+				isStack<= '0'; 
+				isPush<= '0'; 
+				isStore<= '1'; 
+				isFunction<= '0';
 
 -----------------------------------------------------------------------------------------------------------
 -- ------------------------ Branch and Change of Control Operations Signals Handling ----------------------
@@ -143,18 +167,34 @@ begin
 				alu_selection <= "ZZZZ";
 				brachEn <= '1';
 				MEM_W_EN <= '1';
+				isStack<= '0'; 
+				isPush<= '1'; 
+				isStore<= '0'; 
+				isFunction<= '1';
 			elsif(opCode = "11101") then -- RET
 				alu_selection <= "ZZZZ";
 				brachEn <= '1';
 				MEM_R_EN <= '1';
+				isStack<= '0'; 
+				isPush<= '0'; 
+				isStore<= '0'; 
+				isFunction<= '1';
 			elsif(opCode = "11110") then -- INT
 				alu_selection <= "ZZZZ";
 				brachEn <= '1';
 				MEM_W_EN <= '1';
+				isStack<= '0'; 
+				isPush<= '1'; 
+				isStore<= '0'; 
+				isFunction<= '1';
 			elsif(opCode = "11111") then -- RTI
 				alu_selection <= "ZZZZ";
 				brachEn <= '1';
 				MEM_R_EN <= '1';
+				isStack<= '0'; 
+				isPush<= '0'; 
+				isStore<= '0'; 
+				isFunction<= '1';
 			end if;	
 
 

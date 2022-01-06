@@ -89,9 +89,9 @@ GENERIC ( n : INTEGER := 32 );
 		bufferEn2, clk,reset: in std_logic;
 		Rs, Rt: in std_logic_vector(n-1 downto 0);
 		Rd_address: in std_logic_vector(2 downto 0);
-		control_signls: in std_logic_vector(14 downto 0);
-		output: out std_logic_vector(49 downto 0)
-	);
+		control_signls: in std_logic_vector(18 downto 0);
+		output: out std_logic_vector(53 downto 0)
+		);
 end component;
 
 component ALSU is
@@ -179,7 +179,7 @@ signal jmpinst: std_logic_vector(19 downto 0);
 signal decodeStage_registerFileOut1_ID_IE: std_logic_vector(15 downto 0);
 signal decodeStage_registerFileOut2_ID_IE: std_logic_vector(15 downto 0);
 signal hazardDetect: std_logic;
-signal controlSignals: std_logic_vector(14 downto 0);
+signal controlSignals: std_logic_vector(18 downto 0);
 signal IDEX_Out: std_logic_vector(49 downto 0);
 signal decode_execute_source2: std_logic_vector(15 downto 0);
 
@@ -192,6 +192,11 @@ signal negative_enable: std_logic;
 signal CCR: std_logic_vector(2 downto 0);
 signal alu_data_from_input: std_logic_vector(15 downto 0);
 signal execution_stage_output: std_logic_vector(15 downto 0);
+
+-- MEM stage -- 
+signal stackPointer_Mem_Input : std_logic_vector(31 downto 0);
+signal stackPointer_Output_Mem: std_logic_vector(31 downto 0);
+signal memorydataoutput: std_logic_vector(31 downto 0);
 
 -- WB stage signals --
 signal MEM_WB_OUT: std_logic_vector(50 downto 0);
@@ -214,7 +219,7 @@ if_id: IFID generic map(32) port map('1', clk, reset, fetchStage_instMemory_IF_I
 hazardDetect <= '0';
 
 register_file: registerFile generic map(16) port map(clk, reset, wb_enable, decodeStage_IF_ID_out(26 downto 24), decodeStage_IF_ID_out(23 downto 21), writeBackStage_IM_IWB_registerFile_dataAddress, writeBackStage_IM_IWB_registerFile_writeData,decodeStage_registerFileOut1_ID_IE, decodeStage_registerFileOut2_ID_IE);
-controlU : controlUnit generic map(16) port map(hazardDetect, decodeStage_IF_ID_out(31 downto 27),controlSignals(0),controlSignals(1),controlSignals(2),controlSignals(3),controlSignals(4),controlSignals(5),controlSignals(6),controlSignals(7),controlSignals(8),controlSignals(9),controlSignals(10),controlSignals(14 downto 11));
+controlU : controlUnit generic map(16) port map(hazardDetect, decodeStage_IF_ID_out(31 downto 27),controlSignals(0),controlSignals(1),controlSignals(2),controlSignals(3),controlSignals(4),controlSignals(5),controlSignals(6),controlSignals(7),controlSignals(8),controlSignals(9),controlSignals(10),controlSignals(14 downto 11), controlSingals(15),controlSingals(16),controlSingals(17),controlSingals(18));
 
 decode_execute_source2 <= decodeStage_registerFileOut2_ID_IE when controlSignals(2) = '0'
 	else decodeStage_IF_ID_out(17 downto 2);
@@ -231,7 +236,10 @@ execution_stage_output <= inputData when IDEX_Out(41) = '1'
 outputData <= IDEX_Out(15 downto 0) when IDEX_Out(42) = '1'
 	else (others => 'Z');
 
+ex_mem: --TODO
 -- mem stage --
+stack_pointer: DFF generic map(32) port map(stackPointer_Mem_Input, clk, reset, '1', stackPointer_Output_Mem);
+Mem_stage: memory_stage portmap(); --TODO
 mem_wb : MEMWB generic map(16) port map('1', clk, reset, execution_stage_output, "1010101010101010", IDEX_Out(49 downto 47), '0', IDEX_Out(46 downto 32), MEM_WB_OUT  );
 
 -- WB stage --
