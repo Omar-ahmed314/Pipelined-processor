@@ -50,6 +50,18 @@ GENERIC ( n : INTEGER := 32 );
 		);
 END component;
 
+COMPONENT resetRegister IS 
+
+GENERIC ( n : INTEGER := 32 );
+
+	PORT( 
+			d: in std_logic_vector(n - 1 downto 0);
+			clk,reset,en : IN std_logic;
+			resetvalue: IN std_logic_vector(n-1 downto 0);
+			q : OUT std_logic_vector(n - 1 downto 0)
+		);
+END COMPONENT;
+
 component IFID is
 GENERIC ( n : INTEGER := 32 );
 	port(
@@ -76,9 +88,10 @@ GENERIC ( n : INTEGER := 32 );
 		hazard_detected: in std_logic;
 		opCode: in std_logic_vector(4 downto 0);
 		brachEn, flagChange: out std_logic;
-		is_Imm, ST_or_BNE, WB_EN, MEM_R_EN, MEM_W_EN,NO_OP, setC, inEN, outEN: out std_logic;
-		alu_selection: out std_logic_vector(3 downto 0)
-	);
+		is_Imm, ST_or_BNE, WB_EN, MEM_R_EN, MEM_W_EN, NO_OP, setC, inEN, outEN: out std_logic;
+		alu_selection: out std_logic_vector(3 downto 0);
+		isStack, isPush, isStore, isFunction: out std_logic
+		);
 end component;
 
 component IDEX is
@@ -90,7 +103,8 @@ GENERIC ( n : INTEGER := 32 );
 		Rs, Rt: in std_logic_vector(n-1 downto 0);
 		Rd_address: in std_logic_vector(2 downto 0);
 		control_signls: in std_logic_vector(18 downto 0);
-		output: out std_logic_vector(53 downto 0)
+		imm_value: in std_logic_vector(15 downto 0);
+		output: out std_logic_vector(69 downto 0)
 		);
 end component;
 
@@ -117,9 +131,9 @@ GENERIC ( n : INTEGER := 16 );
 		mem_data: in std_logic_vector(n-1 downto 0); 
 		dest_address:in std_logic_vector(2 downto 0);
 		isMemory: in std_logic;
-		controlSignals: in std_logic_vector(14 downto 0);
-		output: out std_logic_vector(50 downto 0)
-	);
+		controlSignals: in std_logic_vector(18 downto 0);
+		output: out std_logic_vector(54 downto 0)
+		);
 end component;
 
 component writeback is 
@@ -132,8 +146,7 @@ component writeback is
 		isMemory: in std_logic;
 		address_out: out std_logic_vector(2 downto 0);
 		outdata: out std_logic_vector(15 downto 0);
-		wb_enable_out: out std_logic
-	);
+		wb_enable_out: out std_logic);
 
 end component;
 
@@ -147,6 +160,20 @@ en_n: in std_logic;
 en_c: in std_logic;
 CCR_O: out std_logic_vector(2 downto 0)
 );
+end component;
+
+component EXMEM is
+-- Generic OF Sign Extend --
+GENERIC ( n : INTEGER := 16 );
+
+	port( 
+		we, clk, reset: in std_logic;
+		rsrc1: in std_logic_vector(15 downto 0);
+		alu_data: in std_logic_vector(n-1 downto 0);
+		dest_address:in std_logic_vector(2 downto 0);
+		controlSignals: in std_logic_vector(18 downto 0);
+		output: out std_logic_vector(53 downto 0)
+		);
 end component;
 
 component memory_stage is
@@ -180,7 +207,7 @@ signal decodeStage_registerFileOut1_ID_IE: std_logic_vector(15 downto 0);
 signal decodeStage_registerFileOut2_ID_IE: std_logic_vector(15 downto 0);
 signal hazardDetect: std_logic;
 signal controlSignals: std_logic_vector(18 downto 0);
-signal IDEX_Out: std_logic_vector(49 downto 0);
+signal IDEX_Out: std_logic_vector(69 downto 0);
 signal decode_execute_source2: std_logic_vector(15 downto 0);
 
 -- ALU stage --
@@ -192,9 +219,19 @@ signal negative_enable: std_logic;
 signal CCR: std_logic_vector(2 downto 0);
 signal alu_data_from_input: std_logic_vector(15 downto 0);
 signal execution_stage_output: std_logic_vector(15 downto 0);
+signal ALU_input1: std_logic_vector(15 downto 0);
+signal ALU_input2: std_logic_vector(15 downto 0);
+
+-- MEM stage -- 
+signal stackPointer_Mem_Input : std_logic_vector(31 downto 0);
+signal stackPointer_Output_Mem: std_logic_vector(31 downto 0);
+signal memorydataoutput: std_logic_vector(31 downto 0);
+signal EXMEM_Out: std_logic_vector(53 downto 0);
+signal datain_memory: std_logic_vector(31 downto 0);
+signal addressin_memory: std_logic_vector(31 downto 0);
 
 -- WB stage signals --
-signal MEM_WB_OUT: std_logic_vector(50 downto 0);
+signal MEM_WB_OUT: std_logic_vector(54 downto 0);
 signal writeBackStage_IM_IWB_registerFile_dataAddress: std_logic_vector(2 downto 0);
 signal writeBackStage_IM_IWB_registerFile_writeData: std_logic_vector(15 downto 0);
 signal wb_enable: std_logic;
@@ -214,15 +251,20 @@ if_id: IFID generic map(32) port map('1', clk, reset, fetchStage_instMemory_IF_I
 hazardDetect <= '0';
 
 register_file: registerFile generic map(16) port map(clk, reset, wb_enable, decodeStage_IF_ID_out(26 downto 24), decodeStage_IF_ID_out(23 downto 21), writeBackStage_IM_IWB_registerFile_dataAddress, writeBackStage_IM_IWB_registerFile_writeData,decodeStage_registerFileOut1_ID_IE, decodeStage_registerFileOut2_ID_IE);
-controlU : controlUnit generic map(16) port map(hazardDetect, decodeStage_IF_ID_out(31 downto 27),controlSignals(0),controlSignals(1),controlSignals(2),controlSignals(3),controlSignals(4),controlSignals(5),controlSignals(6),controlSignals(7),controlSignals(8),controlSignals(9),controlSignals(10),controlSignals(14 downto 11), controlSingals(15),controlSingals(16),controlSingals(17),controlSingals(18));
+controlU : controlUnit generic map(16) port map(hazardDetect, decodeStage_IF_ID_out(31 downto 27),controlSignals(0),controlSignals(1),controlSignals(2),controlSignals(3),controlSignals(4),controlSignals(5),controlSignals(6),controlSignals(7),controlSignals(8),controlSignals(9),controlSignals(10),controlSignals(14 downto 11), controlSignals(15),controlSignals(16),controlSignals(17),controlSignals(18));
 
-decode_execute_source2 <= decodeStage_registerFileOut2_ID_IE when controlSignals(2) = '0'
-	else decodeStage_IF_ID_out(17 downto 2);
+--decode_execute_source2 <= decodeStage_registerFileOut2_ID_IE when controlSignals(2) = '0'
+--	else decodeStage_IF_ID_out(17 downto 2);
 
-id_ex: IDEX generic map(16) port map('1', clk, reset,decodeStage_registerFileOut1_ID_IE,decode_execute_source2, decodeStage_IF_ID_out(20 downto 18), controlSignals, IDEX_Out);
+id_ex: IDEX generic map(16) port map('1', clk, reset,decodeStage_registerFileOut1_ID_IE,decodeStage_registerFileOut2_ID_IE, decodeStage_IF_ID_out(20 downto 18), controlSignals, decodeStage_IF_ID_out(17 downto 2), IDEX_Out);
 
 -- ALU stage --
-ALSU_Stage : ALSU generic map(16) port map(IDEX_Out(15 downto 0), IDEX_Out(31 downto 16), IDEX_Out(46 downto 43),ALU_out,ALU_cout,'0');
+ALU_input2 <= IDEX_Out(31 downto 16) when IDEX_Out(34) = '0' --immediate value in operand 2 if it is used
+	   else IDEX_Out(69 downto 54);
+ALU_input1 <= IDEX_Out(31 downto 16) when IDEX_Out(49) = '1' ---for store instruction: src2 is in operand1 to be added with offset in operand 2
+	   else IDEX_Out(15 downto 0);
+
+ALSU_Stage : ALSU generic map(16) port map(ALU_input1, ALU_input2, IDEX_Out(46 downto 43),ALU_out,ALU_cout,'0');
 flags_stage : flags generic map(16) port map(ALU_out, ALU_cout, zero_enable, carry_enable, negative_enable, CCR);
 --in_register: NDFF generic map(16) port map(inputData, clk, reset, IDEX_Out(41), alu_data_from_input);
 --out_register: DFF generic map(16) port map(IDEX_Out(15 downto 0), clk, reset, IDEX_Out(42), outputData);
@@ -231,11 +273,15 @@ execution_stage_output <= inputData when IDEX_Out(41) = '1'
 outputData <= IDEX_Out(15 downto 0) when IDEX_Out(42) = '1'
 	else (others => 'Z');
 
-ex_mem: 
+ex_mem: EXMEM port map('1', clk, reset, IDEX_Out(15 downto 0), execution_stage_output, IDEX_Out(53 downto 51), IDEX_Out(50 downto 32), EXMEM_Out);
 -- mem stage --
-instruction_pointer: DFF generic map(32) port map(fetchStage_mux_ip, clk, reset, '1', fetchStage_ip_instMemory);
+stack_pointer: resetRegister generic map(32) port map(stackPointer_Mem_Input, clk, reset, '1', x"000fffff",stackPointer_Output_Mem); ---change stack pointer reset address
 
-mem_wb : MEMWB generic map(16) port map('1', clk, reset, execution_stage_output, "1010101010101010", IDEX_Out(49 downto 47), '0', IDEX_Out(46 downto 32), MEM_WB_OUT  );
+datain_memory <= EXMEM_Out(53 downto 38) & x"0000";
+addressin_memory <= x"0000" & EXMEM_Out(37 downto 22);
+Mem_stage: memory_stage port map(EXMEM_Out(15),EXMEM_Out(16),EXMEM_Out(17),EXMEM_Out(18), stackPointer_Output_Mem, addressin_memory , datain_memory,  memorydataoutput, stackPointer_Mem_Input); 
+
+mem_wb : MEMWB generic map(16) port map('1', clk, reset, EXMEM_Out(37 downto 22), memorydataoutput(31 downto 16), EXMEM_Out(21 downto 19), '0', EXMEM_Out(18 downto 0), MEM_WB_OUT);
 
 -- WB stage --
 wb_Stage : writeback port map(MEM_WB_OUT(50 downto 36),MEM_WB_OUT(35 downto 20), MEM_WB_OUT(19 downto 4), MEM_WB_OUT(3 downto 1), MEM_WB_OUT(0), writeBackStage_IM_IWB_registerFile_dataAddress, writeBackStage_IM_IWB_registerFile_writeData, wb_enable );

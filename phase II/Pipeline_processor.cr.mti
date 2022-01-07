@@ -17,14 +17,6 @@ Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
 -- Compiling entity IFID
 -- Compiling architecture IFID of IFID
 
-} {} {}} {E:/CMP/CA/New folder/Pipelined-processor/phase II/writeback.vhd} {1 {vcom -work work -2002 -explicit -stats=none {E:/CMP/CA/New folder/Pipelined-processor/phase II/writeback.vhd}
-Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity writeback
--- Compiling architecture struct of writeback
-
 } {} {}} {E:/CMP/CA/New folder/Pipelined-processor/phase II/memory_stage.vhd} {1 {vcom -work work -2002 -explicit -stats=none {E:/CMP/CA/New folder/Pipelined-processor/phase II/memory_stage.vhd}
 Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
 -- Loading package STANDARD
@@ -32,6 +24,14 @@ Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
 -- Loading package std_logic_1164
 -- Compiling entity memoryStage
 -- Compiling architecture struct of memoryStage
+
+} {} {}} {E:/CMP/CA/New folder/Pipelined-processor/phase II/writeback.vhd} {1 {vcom -work work -2002 -explicit -stats=none {E:/CMP/CA/New folder/Pipelined-processor/phase II/writeback.vhd}
+Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity writeback
+-- Compiling architecture struct of writeback
 
 } {} {}} {E:/CMP/CA/New folder/Pipelined-processor/phase II/forward_unit.vhd} {1 {vcom -work work -2002 -explicit -stats=none {E:/CMP/CA/New folder/Pipelined-processor/phase II/forward_unit.vhd}
 Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
@@ -93,6 +93,24 @@ Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
 -- Compiling entity flags
 -- Compiling architecture a_flags of flags
 
+} {} {}} {E:/CMP/CA/New folder/Pipelined-processor/phase II/MEM_WB.vhd} {1 {vcom -work work -2002 -explicit -stats=none {E:/CMP/CA/New folder/Pipelined-processor/phase II/MEM_WB.vhd}
+Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_SIGNED
+-- Compiling entity MEMWB
+-- Compiling architecture MEMWB of MEMWB
+
+} {} {}} {E:/CMP/CA/New folder/Pipelined-processor/phase II/fetchaddvalue.vhd} {1 {vcom -work work -2002 -explicit -stats=none {E:/CMP/CA/New folder/Pipelined-processor/phase II/fetchaddvalue.vhd}
+Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity fetchaddedvalue
+-- Compiling architecture struct of fetchaddedvalue
+
 } {} {}} {E:/CMP/CA/New folder/Pipelined-processor/phase II/ram.vhd} {1 {vcom -work work -2002 -explicit -stats=none {E:/CMP/CA/New folder/Pipelined-processor/phase II/ram.vhd}
 Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
 -- Loading package STANDARD
@@ -102,13 +120,21 @@ Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
 -- Compiling entity ram
 -- Compiling architecture syncrama of ram
 
-} {} {}} {E:/CMP/CA/New folder/Pipelined-processor/phase II/fetchaddvalue.vhd} {1 {vcom -work work -2002 -explicit -stats=none {E:/CMP/CA/New folder/Pipelined-processor/phase II/fetchaddvalue.vhd}
+} {} {}} {E:/CMP/CA/New folder/Pipelined-processor/phase II/one_bit_full_adder.vhd} {1 {vcom -work work -2002 -explicit -stats=none {E:/CMP/CA/New folder/Pipelined-processor/phase II/one_bit_full_adder.vhd}
 Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
--- Compiling entity fetchaddedvalue
--- Compiling architecture struct of fetchaddedvalue
+-- Compiling entity one_bit_full_adder
+-- Compiling architecture a_1_bit_fa of one_bit_full_adder
+
+} {} {}} {E:/CMP/CA/New folder/Pipelined-processor/phase II/onebitadder.vhd} {1 {vcom -work work -2002 -explicit -stats=none {E:/CMP/CA/New folder/Pipelined-processor/phase II/onebitadder.vhd}
+Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity one_bit_adder
+-- Compiling architecture a_one_bit_adder of one_bit_adder
 
 } {} {}} {E:/CMP/CA/New folder/Pipelined-processor/phase II/signExtend.vhd} {1 {vcom -work work -2002 -explicit -stats=none {E:/CMP/CA/New folder/Pipelined-processor/phase II/signExtend.vhd}
 Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
@@ -120,22 +146,6 @@ Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
 -- Compiling entity signExtend
 -- Compiling architecture signExtend of signExtend
 
-} {} {}} {E:/CMP/CA/New folder/Pipelined-processor/phase II/onebitadder.vhd} {1 {vcom -work work -2002 -explicit -stats=none {E:/CMP/CA/New folder/Pipelined-processor/phase II/onebitadder.vhd}
-Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity one_bit_adder
--- Compiling architecture a_one_bit_adder of one_bit_adder
-
-} {} {}} {E:/CMP/CA/New folder/Pipelined-processor/phase II/one_bit_full_adder.vhd} {1 {vcom -work work -2002 -explicit -stats=none {E:/CMP/CA/New folder/Pipelined-processor/phase II/one_bit_full_adder.vhd}
-Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity one_bit_full_adder
--- Compiling architecture a_1_bit_fa of one_bit_full_adder
-
 } {} {}} {E:/CMP/CA/New folder/Pipelined-processor/phase II/fetch.vhd} {1 {vcom -work work -2002 -explicit -stats=none {E:/CMP/CA/New folder/Pipelined-processor/phase II/fetch.vhd}
 Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
 -- Loading package STANDARD
@@ -143,6 +153,24 @@ Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
 -- Loading package std_logic_1164
 -- Compiling entity fetch
 -- Compiling architecture struct of fetch
+
+} {} {}} {E:/CMP/CA/New folder/Pipelined-processor/phase II/EX_MEM.vhd} {1 {vcom -work work -2002 -explicit -stats=none {E:/CMP/CA/New folder/Pipelined-processor/phase II/EX_MEM.vhd}
+Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_SIGNED
+-- Compiling entity EXMEM
+-- Compiling architecture EXMEM of EXMEM
+
+} {} {}} {E:/CMP/CA/New folder/Pipelined-processor/phase II/Pipeline_processor.vhd} {1 {vcom -work work -2002 -explicit -stats=none {E:/CMP/CA/New folder/Pipelined-processor/phase II/Pipeline_processor.vhd}
+Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity Pipeline_processor
+-- Compiling architecture arch1 of Pipeline_processor
 
 } {} {}} {E:/CMP/CA/New folder/Pipelined-processor/phase II/ALSU.vhd} {1 {vcom -work work -2002 -explicit -stats=none {E:/CMP/CA/New folder/Pipelined-processor/phase II/ALSU.vhd}
 Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
@@ -161,6 +189,14 @@ Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
 -- Compiling entity decoder
 -- Compiling architecture decoder of decoder
 
+} {} {}} {E:/CMP/CA/New folder/Pipelined-processor/phase II/resetRegister.vhd} {1 {vcom -work work -2002 -explicit -stats=none {E:/CMP/CA/New folder/Pipelined-processor/phase II/resetRegister.vhd}
+Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity resetRegister
+-- Compiling architecture resetRegister of resetRegister
+
 } {} {}} {E:/CMP/CA/New folder/Pipelined-processor/phase II/partA.vhd} {2 {vcom -work work -2002 -explicit -stats=none {E:/CMP/CA/New folder/Pipelined-processor/phase II/partA.vhd}
 Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
 -- Loading package STANDARD
@@ -170,6 +206,16 @@ Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
 -- Compiling architecture a_partA of partA
 ** Warning: E:/CMP/CA/New folder/Pipelined-processor/phase II/partA.vhd(37): (vcom-1074) Non-locally static OTHERS choice is allowed only if it is the only choice of the only association.
 
+
+} {} {}} {E:/CMP/CA/New folder/Pipelined-processor/phase II/ID_EX.vhd} {1 {vcom -work work -2002 -explicit -stats=none {E:/CMP/CA/New folder/Pipelined-processor/phase II/ID_EX.vhd}
+Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_SIGNED
+-- Compiling entity IDEX
+-- Compiling architecture IDEX of IDEX
 
 } {} {}} {E:/CMP/CA/New folder/Pipelined-processor/phase II/controlUnit.vhd} {1 {vcom -work work -2002 -explicit -stats=none {E:/CMP/CA/New folder/Pipelined-processor/phase II/controlUnit.vhd}
 Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
@@ -189,6 +235,14 @@ Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
 -- Compiling entity partB
 -- Compiling architecture myModel of partB
 
+} {} {}} {E:/CMP/CA/New folder/Pipelined-processor/phase II/mux.vhd} {1 {vcom -work work -2002 -explicit -stats=none {E:/CMP/CA/New folder/Pipelined-processor/phase II/mux.vhd}
+Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity mux_2to1_top
+-- Compiling architecture Behavioral of mux_2to1_top
+
 } {} {}} {E:/CMP/CA/New folder/Pipelined-processor/phase II/partC.vhd} {1 {vcom -work work -2002 -explicit -stats=none {E:/CMP/CA/New folder/Pipelined-processor/phase II/partC.vhd}
 Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
 -- Loading package STANDARD
@@ -197,13 +251,5 @@ Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
 -- Loading package NUMERIC_STD
 -- Compiling entity partC
 -- Compiling architecture myModel of partC
-
-} {} {}} {E:/CMP/CA/New folder/Pipelined-processor/phase II/mux.vhd} {1 {vcom -work work -2002 -explicit -stats=none {E:/CMP/CA/New folder/Pipelined-processor/phase II/mux.vhd}
-Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity mux_2to1_top
--- Compiling architecture Behavioral of mux_2to1_top
 
 } {} {}}

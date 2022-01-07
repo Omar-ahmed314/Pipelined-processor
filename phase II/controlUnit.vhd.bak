@@ -14,7 +14,7 @@ GENERIC ( n : INTEGER := 32 );
 		brachEn, flagChange: out std_logic;
 		is_Imm, ST_or_BNE, WB_EN, MEM_R_EN, MEM_W_EN, NO_OP, setC, inEN, outEN: out std_logic;
 		alu_selection: out std_logic_vector(3 downto 0);
-		isStack, isPush, isStore, isFunction: in std_logic
+		isStack, isPush, isStore, isFunction: out std_logic
 		);
 end controlUnit;
 -- /*=== End ====*/ --
@@ -120,8 +120,8 @@ begin
 				isStore<= '0'; 
 				isFunction<= '0';
 				WB_EN <= '1';
-			elsif(opCode = "10010") then -- LDM -----to be handled
-				alu_selection <= "0000";
+			elsif(opCode = "10010") then -- LDM 
+				alu_selection <= "0110";
 				NO_OP <= '1';
 				is_Imm <= '1';
 				WB_EN <= '1';

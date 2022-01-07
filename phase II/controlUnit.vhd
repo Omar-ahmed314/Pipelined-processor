@@ -120,16 +120,16 @@ begin
 				isStore<= '0'; 
 				isFunction<= '0';
 				WB_EN <= '1';
-			elsif(opCode = "10010") then -- LDM -----to be handled
-				alu_selection <= "0000";
+			elsif(opCode = "10010") then -- LDM 
+				alu_selection <= "0110";
 				NO_OP <= '1';
 				is_Imm <= '1';
 				WB_EN <= '1';
 	
 			elsif(opCode = "10011") then -- LDD
-				alu_selection <= "0001"; -----handle add sources
+				alu_selection <= "0001";
 				WB_EN <= '1';
-				is_Imm <= '1'; -- Think Twice --
+				is_Imm <= '1'; 
 				isStack<= '0'; 
 				isPush<= '0'; 
 				isStore<= '0'; 

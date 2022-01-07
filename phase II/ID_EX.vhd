@@ -14,7 +14,8 @@ GENERIC ( n : INTEGER := 16 );
 		Rs, Rt: in std_logic_vector(n-1 downto 0);
 		Rd_address: in std_logic_vector(2 downto 0);
 		control_signls: in std_logic_vector(18 downto 0);
-		output: out std_logic_vector(53 downto 0)
+		imm_value: in std_logic_vector(15 downto 0);
+		output: out std_logic_vector(69 downto 0)
 		);
 end IDEX;
 -- /*=== End ====*/ --
@@ -30,6 +31,7 @@ begin
 		
 		elsif(rising_edge(clk)) then		
 			if(bufferEn2 = '1') then
+				output(69 downto 54) <= imm_value;
 				output (53 downto 51) <= Rd_address;
 				output(50 downto 32) <= control_signls;
 				output(31 downto 16) <= Rs;
