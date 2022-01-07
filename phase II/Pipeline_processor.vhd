@@ -90,7 +90,8 @@ GENERIC ( n : INTEGER := 32 );
 		brachEn, flagChange: out std_logic;
 		is_Imm, ST_or_BNE, WB_EN, MEM_R_EN, MEM_W_EN, NO_OP, setC, inEN, outEN: out std_logic;
 		alu_selection: out std_logic_vector(3 downto 0);
-		isStack, isPush, isStore, isFunction: out std_logic
+		isStack, isPush, isStore, isFunction: out std_logic;
+		zFlag, nFlag, cFlag: out std_logic
 		);
 end component;
 
@@ -104,7 +105,9 @@ GENERIC ( n : INTEGER := 32 );
 		Rd_address: in std_logic_vector(2 downto 0);
 		control_signls: in std_logic_vector(18 downto 0);
 		imm_value: in std_logic_vector(15 downto 0);
-		output: out std_logic_vector(69 downto 0)
+		zf,nf,cf: in std_logic;
+		output: out std_logic_vector(69 downto 0);
+		zfOut, nfOut, cfOut: out std_logic
 		);
 end component;
 
@@ -192,6 +195,14 @@ port(
 
 end component;
 
+component DFF_oneBit IS 
+
+	PORT( 
+			d: in std_logic;
+			clk,reset,en : IN std_logic;
+			q : OUT std_logic
+		);
+END component;
 -- /*=== End ====*/ --
 
 -- fetch stage signals --
@@ -209,6 +220,7 @@ signal hazardDetect: std_logic;
 signal controlSignals: std_logic_vector(18 downto 0);
 signal IDEX_Out: std_logic_vector(69 downto 0);
 signal decode_execute_source2: std_logic_vector(15 downto 0);
+signal conrtol_zero_flag_out, conrtol_negative_flag_out, conrtol_carry_flag_out: std_logic;
 
 -- ALU stage --
 signal ALU_out: std_logic_vector(15 downto 0);
@@ -221,6 +233,7 @@ signal alu_data_from_input: std_logic_vector(15 downto 0);
 signal execution_stage_output: std_logic_vector(15 downto 0);
 signal ALU_input1: std_logic_vector(15 downto 0);
 signal ALU_input2: std_logic_vector(15 downto 0);
+signal CRR_Out: std_logic_vector(2 downto 0);
 
 -- MEM stage -- 
 signal stackPointer_Mem_Input : std_logic_vector(31 downto 0);
@@ -251,12 +264,12 @@ if_id: IFID generic map(32) port map('1', clk, reset, fetchStage_instMemory_IF_I
 hazardDetect <= '0';
 
 register_file: registerFile generic map(16) port map(clk, reset, wb_enable, decodeStage_IF_ID_out(26 downto 24), decodeStage_IF_ID_out(23 downto 21), writeBackStage_IM_IWB_registerFile_dataAddress, writeBackStage_IM_IWB_registerFile_writeData,decodeStage_registerFileOut1_ID_IE, decodeStage_registerFileOut2_ID_IE);
-controlU : controlUnit generic map(16) port map(hazardDetect, decodeStage_IF_ID_out(31 downto 27),controlSignals(0),controlSignals(1),controlSignals(2),controlSignals(3),controlSignals(4),controlSignals(5),controlSignals(6),controlSignals(7),controlSignals(8),controlSignals(9),controlSignals(10),controlSignals(14 downto 11), controlSignals(15),controlSignals(16),controlSignals(17),controlSignals(18));
+controlU : controlUnit generic map(16) port map(hazardDetect, decodeStage_IF_ID_out(31 downto 27),controlSignals(0),controlSignals(1),controlSignals(2),controlSignals(3),controlSignals(4),controlSignals(5),controlSignals(6),controlSignals(7),controlSignals(8),controlSignals(9),controlSignals(10),controlSignals(14 downto 11), controlSignals(15),controlSignals(16),controlSignals(17),controlSignals(18),conrtol_zero_flag_out,conrtol_negative_flag_out,conrtol_carry_flag_out);
 
 --decode_execute_source2 <= decodeStage_registerFileOut2_ID_IE when controlSignals(2) = '0'
 --	else decodeStage_IF_ID_out(17 downto 2);
 
-id_ex: IDEX generic map(16) port map('1', clk, reset,decodeStage_registerFileOut1_ID_IE,decodeStage_registerFileOut2_ID_IE, decodeStage_IF_ID_out(20 downto 18), controlSignals, decodeStage_IF_ID_out(17 downto 2), IDEX_Out);
+id_ex: IDEX generic map(16) port map('1', clk, reset,decodeStage_registerFileOut1_ID_IE,decodeStage_registerFileOut2_ID_IE, decodeStage_IF_ID_out(20 downto 18), controlSignals, decodeStage_IF_ID_out(17 downto 2),conrtol_zero_flag_out,conrtol_negative_flag_out,conrtol_carry_flag_out, IDEX_Out,zero_enable, negative_enable,carry_enable );
 
 -- ALU stage --
 ALU_input2 <= IDEX_Out(15 downto 0) when IDEX_Out(34) = '0' --immediate value in operand 2 if it is used
@@ -265,7 +278,16 @@ ALU_input1 <= IDEX_Out(15 downto 0) when IDEX_Out(49) = '1' ---for store instruc
 	   else IDEX_Out(31 downto 16);
 
 ALSU_Stage : ALSU generic map(16) port map(ALU_input1, ALU_input2, IDEX_Out(46 downto 43),ALU_out,ALU_cout,'0');
-flags_stage : flags generic map(16) port map(ALU_out, ALU_cout, zero_enable, carry_enable, negative_enable, CCR);
+flags_stage : flags generic map(16) port map(ALU_out, ALU_cout,CRR_Out, zero_enable, negative_enable,carry_enable , CCR);
+
+-- ALU Flags
+
+zeroFlag: DFF_oneBit port map(CCR(0), clk, reset, zero_enable, CRR_Out(0));
+negativeFlag: DFF_oneBit port map(CCR(1), clk, reset, negative_enable, CRR_Out(1));
+carryFlag: DFF_oneBit port map(CCR(2), clk, reset, carry_enable, CRR_Out(2));
+
+-- End
+
 --in_register: NDFF generic map(16) port map(inputData, clk, reset, IDEX_Out(41), alu_data_from_input);
 --out_register: DFF generic map(16) port map(IDEX_Out(15 downto 0), clk, reset, IDEX_Out(42), outputData);
 execution_stage_output <= inputData when IDEX_Out(41) = '1'

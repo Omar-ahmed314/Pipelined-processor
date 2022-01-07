@@ -24,13 +24,13 @@ zero_v <= (Others => '0');
 PROCESS(en_z, en_n, en_c) IS  
 BEGIN
     IF en_z = '1' and alu_o = zero_v THEN   
-          CCR <= CCR_I(2 downto 1) & '1';
+          CCR <= CCR(2 downto 1) & '1';
    END IF;
     IF en_n = '1' and alu_o(n - 1) = '1' THEN   
-          CCR <= CCR_I(2) & '1' & CCR(0);
+          CCR <= CCR(2) & '1' & CCR(0);
    END IF;
      IF en_c = '1' and alu_cout = '1'THEN   
-          CCR <= '1' & CCR_I(1 downto 0);
+          CCR <= '1' & CCR(1 downto 0);
    END IF;
 END PROCESS;
 

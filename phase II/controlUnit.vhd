@@ -14,7 +14,8 @@ GENERIC ( n : INTEGER := 32 );
 		brachEn, flagChange: out std_logic;
 		is_Imm, ST_or_BNE, WB_EN, MEM_R_EN, MEM_W_EN, NO_OP, setC, inEN, outEN: out std_logic;
 		alu_selection: out std_logic_vector(3 downto 0);
-		isStack, isPush, isStore, isFunction: out std_logic
+		isStack, isPush, isStore, isFunction: out std_logic;
+		zFlag, nFlag, cFlag: out std_logic
 		);
 end controlUnit;
 -- /*=== End ====*/ --
@@ -41,7 +42,10 @@ begin
 			isStack<= '0'; 
 			isPush<= '0'; 
 			isStore<= '0'; 
-			isFunction<= '0';
+			isFunction<= '0';	
+			zFlag <= '0';
+			nFlag <= '0';
+			cFlag <= '0';
 --------------------------------------------------------------------------------
 -- ------------------------ One Operand Signals Handling -----------------------
 --------------------------------------------------------------------------------
@@ -56,14 +60,19 @@ begin
 				alu_selection <= "0000";
 				flagChange <= '1';
 				setC <='1';
+				cFlag <= '1';
 			elsif(opCode = "00011") then -- NOT
 				alu_selection <= "0111";
 				flagChange <= '1';
 				WB_EN <= '1';
+				zFlag <= '1';
+				nFlag <= '1';
 			elsif(opCode = "00100") then -- INC
 				alu_selection <= "0000";
 				flagChange <= '1';
 				WB_EN <= '1';
+				nFlag <= '1';	
+				zFlag <= '1';
 			elsif(opCode = "00101") then -- OUT
 				alu_selection <= "0000";
 				outEN <= '1';	
@@ -85,19 +94,30 @@ begin
 				alu_selection <= "0001";
 				flagChange <= '1';
 				WB_EN <= '1';
+				cFlag <= '1';
+				zFlag <= '1';
+				nFlag <= '1';
 			elsif(opCode = "01010") then -- Sub
 				alu_selection <= "0010";
 				flagChange <= '1';
 				WB_EN <= '1';
+				cFlag <= '1';
+				zFlag <= '1';
+				nFlag <= '1';
 			elsif(opCode = "01011") then -- AND
 				alu_selection <= "0100";
 				flagChange <= '1';
 				WB_EN <= '1';
+				zFlag <= '1';
+				nFlag <= '1';
 			elsif(opCode = "01100") then -- IADD
 				alu_selection <= "0001";
 				flagChange <= '1';
 				WB_EN <= '1';
 				is_Imm <= '1';
+				cFlag <= '1';
+				zFlag <= '1';
+				nFlag <= '1';
 
 -------------------------------------------------------------------------------------
 -- ------------------------ Memory Operations Signals Handling ----------------------
@@ -209,4 +229,5 @@ begin
 
 end controlUnit;
 -- /*=== End ====*/ --
+
 
