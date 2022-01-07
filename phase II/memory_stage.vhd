@@ -6,8 +6,8 @@ entity memoryStage is
 port(
 	--memoryEnabled: in std_logic;
 	isStack: in std_logic;
-	isStore: in std_logic;
 	isPush: in std_logic;
+	isStore: in std_logic;
 	isFunction: in std_logic;
 	spIn: in std_logic_vector(31 downto 0);
 	address: in std_logic_vector(31 downto 0);

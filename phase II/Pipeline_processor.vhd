@@ -176,12 +176,12 @@ GENERIC ( n : INTEGER := 16 );
 		);
 end component;
 
-component memory_stage is
+component memoryStage is
 port(
 	--memoryEnabled: in std_logic;
 	isStack: in std_logic;
-	isStore: in std_logic;
 	isPush: in std_logic;
+	isStore: in std_logic;
 	isFunction: in std_logic;
 	spIn: in std_logic_vector(31 downto 0);
 	address: in std_logic_vector(31 downto 0);
@@ -259,10 +259,10 @@ controlU : controlUnit generic map(16) port map(hazardDetect, decodeStage_IF_ID_
 id_ex: IDEX generic map(16) port map('1', clk, reset,decodeStage_registerFileOut1_ID_IE,decodeStage_registerFileOut2_ID_IE, decodeStage_IF_ID_out(20 downto 18), controlSignals, decodeStage_IF_ID_out(17 downto 2), IDEX_Out);
 
 -- ALU stage --
-ALU_input2 <= IDEX_Out(31 downto 16) when IDEX_Out(34) = '0' --immediate value in operand 2 if it is used
+ALU_input2 <= IDEX_Out(15 downto 0) when IDEX_Out(34) = '0' --immediate value in operand 2 if it is used
 	   else IDEX_Out(69 downto 54);
-ALU_input1 <= IDEX_Out(31 downto 16) when IDEX_Out(49) = '1' ---for store instruction: src2 is in operand1 to be added with offset in operand 2
-	   else IDEX_Out(15 downto 0);
+ALU_input1 <= IDEX_Out(15 downto 0) when IDEX_Out(49) = '1' ---for store instruction: src2 is in operand1 to be added with offset in operand 2
+	   else IDEX_Out(31 downto 16);
 
 ALSU_Stage : ALSU generic map(16) port map(ALU_input1, ALU_input2, IDEX_Out(46 downto 43),ALU_out,ALU_cout,'0');
 flags_stage : flags generic map(16) port map(ALU_out, ALU_cout, zero_enable, carry_enable, negative_enable, CCR);
@@ -270,19 +270,19 @@ flags_stage : flags generic map(16) port map(ALU_out, ALU_cout, zero_enable, car
 --out_register: DFF generic map(16) port map(IDEX_Out(15 downto 0), clk, reset, IDEX_Out(42), outputData);
 execution_stage_output <= inputData when IDEX_Out(41) = '1'
 	else ALU_out;
-outputData <= IDEX_Out(15 downto 0) when IDEX_Out(42) = '1'
+outputData <= IDEX_Out(31 downto 16) when IDEX_Out(42) = '1'
 	else (others => 'Z');
 
-ex_mem: EXMEM port map('1', clk, reset, IDEX_Out(15 downto 0), execution_stage_output, IDEX_Out(53 downto 51), IDEX_Out(50 downto 32), EXMEM_Out);
+ex_mem: EXMEM port map('1', clk, reset, IDEX_Out(31 downto 16), execution_stage_output, IDEX_Out(53 downto 51), IDEX_Out(50 downto 32), EXMEM_Out);
 -- mem stage --
 stack_pointer: resetRegister generic map(32) port map(stackPointer_Mem_Input, clk, reset, '1', x"000fffff",stackPointer_Output_Mem); ---change stack pointer reset address
 
 datain_memory <= EXMEM_Out(53 downto 38) & x"0000";
 addressin_memory <= x"0000" & EXMEM_Out(37 downto 22);
 
-Mem_stage: memory_stage port map(EXMEM_Out(15),EXMEM_Out(16),EXMEM_Out(17),EXMEM_Out(18), stackPointer_Output_Mem, addressin_memory , datain_memory,  memorydataoutput, stackPointer_Mem_Input); 
+Mem_stage: memoryStage port map(EXMEM_Out(15),EXMEM_Out(16),EXMEM_Out(17),EXMEM_Out(18), stackPointer_Output_Mem, addressin_memory , datain_memory,  memorydataoutput, stackPointer_Mem_Input); 
 
-mem_wb : MEMWB generic map(16) port map('1', clk, reset, EXMEM_Out(37 downto 22), memorydataoutput(31 downto 16), EXMEM_Out(21 downto 19), '0', EXMEM_Out(18 downto 0), MEM_WB_OUT);
+mem_wb : MEMWB generic map(16) port map('1', clk, reset, EXMEM_Out(37 downto 22), memorydataoutput(31 downto 16), EXMEM_Out(21 downto 19), EXMEM_Out(5), EXMEM_Out(18 downto 0), MEM_WB_OUT);
 
 -- WB stage --
 wb_Stage : writeback port map(MEM_WB_OUT(50 downto 36),MEM_WB_OUT(35 downto 20), MEM_WB_OUT(19 downto 4), MEM_WB_OUT(3 downto 1), MEM_WB_OUT(0), writeBackStage_IM_IWB_registerFile_dataAddress, writeBackStage_IM_IWB_registerFile_writeData, wb_enable );

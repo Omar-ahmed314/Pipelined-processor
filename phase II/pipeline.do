@@ -69,18 +69,21 @@ sim:/pipeline_processor/MEM_WB_OUT \
 sim:/pipeline_processor/writeBackStage_IM_IWB_registerFile_dataAddress \
 sim:/pipeline_processor/writeBackStage_IM_IWB_registerFile_writeData \
 sim:/pipeline_processor/wb_enable
+add wave -position insertpoint sim:/pipeline_processor/Mem_stage/*
 mem load -filltype value -filldata 1001000000000011 -fillradix symbolic /pipeline_processor/fetch_stage/inmem/ram(0)
 mem load -filltype value -filldata 1111111111111100 -fillradix symbolic /pipeline_processor/fetch_stage/inmem/ram(1)
 mem load -filltype value -filldata 0000000000000000 -fillradix symbolic /pipeline_processor/fetch_stage/inmem/ram(2)
 mem load -filltype value -filldata 0000000000000000 -fillradix symbolic /pipeline_processor/fetch_stage/inmem/ram(3)
 mem load -filltype value -filldata 0000000000000000 -fillradix symbolic /pipeline_processor/fetch_stage/inmem/ram(4)
 mem load -filltype value -filldata 0000000000000000 -fillradix symbolic /pipeline_processor/fetch_stage/inmem/ram(5)
-mem load -filltype value -filldata 1000000000000000 -fillradix symbolic /pipeline_processor/fetch_stage/inmem/ram(6)
-mem load -filltype value -filldata 0000000000000000 -fillradix symbolic /pipeline_processor/fetch_stage/inmem/ram(7)
+mem load -filltype value -filldata 1010000000100000 -fillradix symbolic /pipeline_processor/fetch_stage/inmem/ram(6)
+mem load -filltype value -filldata 0000000000001000 -fillradix symbolic /pipeline_processor/fetch_stage/inmem/ram(7)
 mem load -filltype value -filldata 0000000000000000 -fillradix symbolic /pipeline_processor/fetch_stage/inmem/ram(8)
 mem load -filltype value -filldata 0000000000000000 -fillradix symbolic /pipeline_processor/fetch_stage/inmem/ram(9)
 mem load -filltype value -filldata 0000000000000000 -fillradix symbolic /pipeline_processor/fetch_stage/inmem/ram(10)
-mem load -filltype value -filldata 1000100000000100 -fillradix symbolic /pipeline_processor/fetch_stage/inmem/ram(11)
+mem load -filltype value -filldata 0000000000000000 -fillradix symbolic /pipeline_processor/fetch_stage/inmem/ram(11)
+mem load -filltype value -filldata 1001100100001100 -fillradix symbolic /pipeline_processor/fetch_stage/inmem/ram(12)
+mem load -filltype value -filldata 0000000000001000 -fillradix symbolic /pipeline_processor/fetch_stage/inmem/ram(13)
 force -freeze sim:/pipeline_processor/clk 0 0, 1 {50 ps} -r 100
 force -freeze sim:/pipeline_processor/reset 1 0
 run

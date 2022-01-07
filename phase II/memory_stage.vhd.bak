@@ -57,7 +57,7 @@ begin
 	   else "00000000000000000000000000000010" when isFunction ='1'
 	   else "00000000000000000000000000000000";
 
-	adder: n_bit_full_adder GENERIC MAP(32) PORT MAP(spIn, addedValue, '0', coutsignal, spOut);
+	adder: n_bit_full_adder GENERIC MAP(32) PORT MAP(spIn, addedValue, '0', coutsignal, spOutResult);
 
 	we <= '1' when isPush ='1' or isStore ='1'
            else  '0';
@@ -71,7 +71,7 @@ begin
 	
 	datamem: ram PORT MAP(we, accessAddress, isSixteen, datain, dataout);
 
-	--spOut <= spOutResult;
+	spOut <= spOutResult;
 
 		
 end Architecture;

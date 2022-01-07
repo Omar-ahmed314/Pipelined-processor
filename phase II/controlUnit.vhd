@@ -130,6 +130,7 @@ begin
 				alu_selection <= "0001";
 				WB_EN <= '1';
 				is_Imm <= '1'; 
+				MEM_R_EN <= '1';
 				isStack<= '0'; 
 				isPush<= '0'; 
 				isStore<= '0'; 

@@ -29,7 +29,7 @@ begin
 	if(reset = '1') then
 		output <= (others => '0');
 
-	elsif (falling_edge(clk)) then		
+	elsif (rising_edge(clk)) then		
 		if(we = '1') then
 			output(53 downto 38) <= rsrc1; 
 			output(37 downto 22) <= alu_data;

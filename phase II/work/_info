@@ -7,7 +7,7 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-dE:/study affairs/syllabus/3rd year/1st semester/VLSI/Labs/lab 3
+dC:/altera/16.0
 Ealsu
 Z0 w1641484821
 Z1 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
@@ -22,9 +22,9 @@ VQkYWNNbM?]7=[Z4k;m9i?3
 !s100 K@^_`I@K8FLE0KAY9chFj1
 Z7 OV;C;10.4d;61
 32
-Z8 !s110 1641563733
+Z8 !s110 1641570727
 !i10b 1
-Z9 !s108 1641563733.000000
+Z9 !s108 1641570727.000000
 Z10 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:/CMP/CA/New folder/Pipelined-processor/phase II/ALSU.vhd|
 Z11 !s107 E:/CMP/CA/New folder/Pipelined-processor/phase II/ALSU.vhd|
 !i113 1
@@ -50,7 +50,7 @@ R11
 R12
 R13
 Econtrolunit
-Z14 w1641558669
+Z14 w1641570670
 Z15 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
 Z16 DPx4 ieee 16 std_logic_signed 0 22 C<aanc0R`<LWPSe[JYRP^3
 R2
@@ -80,8 +80,8 @@ R3
 DEx4 work 11 controlunit 0 22 `IH5z@eJzOEjZ0gCU=LKi3
 l24
 L23
-VC6XKAOm:7hz>5eGW74M0O2
-!s100 h0Yd>@Hl[5^QX17XjA35`2
+VWH<FSJDJU<mQcnY4_h5ib2
+!s100 9`=Hhg<T<RafciD73l`;R1
 R7
 32
 R8
@@ -165,9 +165,9 @@ VTM<D9:Vf6BR6_7dVEB?g30
 !s100 _aF9IL6]hhainmzYDc:M<2
 R7
 32
-Z28 !s110 1641563735
+Z28 !s110 1641570729
 !i10b 1
-Z29 !s108 1641563735.000000
+Z29 !s108 1641570729.000000
 Z30 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:/CMP/CA/New folder/Pipelined-processor/phase II/Register.vhd|
 Z31 !s107 E:/CMP/CA/New folder/Pipelined-processor/phase II/Register.vhd|
 !i113 1
@@ -192,7 +192,7 @@ R31
 R12
 R13
 Eexmem
-Z32 w1641556194
+Z32 w1641566761
 R15
 R16
 R2
@@ -206,9 +206,9 @@ VL4AdHC;9odOX]>ML[@T;<1
 !s100 7z_JaVFcT6N5BG=PCeJN70
 R7
 32
-R28
+R8
 !i10b 1
-R29
+R9
 Z35 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:/CMP/CA/New folder/Pipelined-processor/phase II/EX_MEM.vhd|
 Z36 !s107 E:/CMP/CA/New folder/Pipelined-processor/phase II/EX_MEM.vhd|
 !i113 1
@@ -222,13 +222,13 @@ R3
 DEx4 work 5 exmem 0 22 L4AdHC;9odOX]>ML[@T;<1
 l25
 L24
-Vj67=]S90DDzoBTbZOBhP10
-!s100 lXRmQ8lGF0;i=gTh035D81
+V]^Z]z<eXY8Y;G>`aHJCOO0
+!s100 3Li_LX<DWJZ^4<TfcJO<13
 R7
 32
-R28
+R8
 !i10b 1
-R29
+R9
 R35
 R36
 !i113 1
@@ -247,11 +247,11 @@ VOWgLCNA`bdjKDbFbME;km0
 !s100 7=zgTkI>57jMhFi;>z`SJ2
 R7
 32
-R8
+Z40 !s110 1641570728
 !i10b 1
 R9
-Z40 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:/CMP/CA/New folder/Pipelined-processor/phase II/fetch.vhd|
-Z41 !s107 E:/CMP/CA/New folder/Pipelined-processor/phase II/fetch.vhd|
+Z41 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:/CMP/CA/New folder/Pipelined-processor/phase II/fetch.vhd|
+Z42 !s107 E:/CMP/CA/New folder/Pipelined-processor/phase II/fetch.vhd|
 !i113 1
 R12
 R13
@@ -265,32 +265,32 @@ V@ZUPEC[R_:;^EJU2M@3^f3
 !s100 FDio7QT[gnTe94eXIcPPS1
 R7
 32
-R8
+R40
 !i10b 1
 R9
-R40
 R41
+R42
 !i113 1
 R12
 R13
 Efetchaddedvalue
-Z42 w1641558602
+Z43 w1641558602
 R2
 R3
 R4
-Z43 8E:/CMP/CA/New folder/Pipelined-processor/phase II/fetchaddvalue.vhd
-Z44 FE:/CMP/CA/New folder/Pipelined-processor/phase II/fetchaddvalue.vhd
+Z44 8E:/CMP/CA/New folder/Pipelined-processor/phase II/fetchaddvalue.vhd
+Z45 FE:/CMP/CA/New folder/Pipelined-processor/phase II/fetchaddvalue.vhd
 l0
 L4
 VUKjhlzPLiS13A@WooAXWE1
 !s100 fO=682d]kf^[g<^bo>`C<0
 R7
 32
-R8
+R40
 !i10b 1
-R9
-Z45 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:/CMP/CA/New folder/Pipelined-processor/phase II/fetchaddvalue.vhd|
-Z46 !s107 E:/CMP/CA/New folder/Pipelined-processor/phase II/fetchaddvalue.vhd|
+Z46 !s108 1641570728.000000
+Z47 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:/CMP/CA/New folder/Pipelined-processor/phase II/fetchaddvalue.vhd|
+Z48 !s107 E:/CMP/CA/New folder/Pipelined-processor/phase II/fetchaddvalue.vhd|
 !i113 1
 R12
 R13
@@ -304,33 +304,33 @@ VNETYbYeYjCILMD1Mc>NRV3
 !s100 m]1i>2oAmWC13B;WoAP6O3
 R7
 32
-R8
+R40
 !i10b 1
-R9
-R45
 R46
+R47
+R48
 !i113 1
 R12
 R13
 Eflags
-Z47 w1641503116
+Z49 w1641503116
 R1
 R2
 R3
 R4
-Z48 8E:/CMP/CA/New folder/Pipelined-processor/phase II/flags.vhd
-Z49 FE:/CMP/CA/New folder/Pipelined-processor/phase II/flags.vhd
+Z50 8E:/CMP/CA/New folder/Pipelined-processor/phase II/flags.vhd
+Z51 FE:/CMP/CA/New folder/Pipelined-processor/phase II/flags.vhd
 l0
 L5
 V53gi>V9J;HNh`3GmLjCc40
 !s100 O_@`>3P>VmW96ck>d7n3X0
 R7
 32
-R8
+R40
 !i10b 1
-R9
-Z50 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:/CMP/CA/New folder/Pipelined-processor/phase II/flags.vhd|
-Z51 !s107 E:/CMP/CA/New folder/Pipelined-processor/phase II/flags.vhd|
+R46
+Z52 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:/CMP/CA/New folder/Pipelined-processor/phase II/flags.vhd|
+Z53 !s107 E:/CMP/CA/New folder/Pipelined-processor/phase II/flags.vhd|
 !i113 1
 R12
 R13
@@ -345,11 +345,11 @@ V8D@jJ]GW:W4VcIHC2H_D91
 !s100 Of9z`i@G<O4l[zmfS`L7I0
 R7
 32
-R8
+R40
 !i10b 1
-R9
-R50
-R51
+R46
+R52
+R53
 !i113 1
 R12
 R13
@@ -358,19 +358,19 @@ R21
 R2
 R3
 R4
-Z52 8E:/CMP/CA/New folder/Pipelined-processor/phase II/forward_unit.vhd
-Z53 FE:/CMP/CA/New folder/Pipelined-processor/phase II/forward_unit.vhd
+Z54 8E:/CMP/CA/New folder/Pipelined-processor/phase II/forward_unit.vhd
+Z55 FE:/CMP/CA/New folder/Pipelined-processor/phase II/forward_unit.vhd
 l0
 L14
 VGZNjW7HzW^omT6DZ]X:aJ2
 !s100 XQgM3`c2MWl4o`k57]XfN2
 R7
 32
-Z54 !s110 1641563734
+R40
 !i10b 1
-R9
-Z55 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:/CMP/CA/New folder/Pipelined-processor/phase II/forward_unit.vhd|
-Z56 !s107 E:/CMP/CA/New folder/Pipelined-processor/phase II/forward_unit.vhd|
+R46
+Z56 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:/CMP/CA/New folder/Pipelined-processor/phase II/forward_unit.vhd|
+Z57 !s107 E:/CMP/CA/New folder/Pipelined-processor/phase II/forward_unit.vhd|
 !i113 1
 R12
 R13
@@ -384,32 +384,32 @@ VcO<S5_5;Jef]KI2^obhm;2
 !s100 35TiIG=^:gfl?mXVaJz6i3
 R7
 32
-R54
+R40
 !i10b 1
-R9
-R55
+R46
 R56
+R57
 !i113 1
 R12
 R13
 Eidex
-Z57 w1641559824
+Z58 w1641559824
 R15
 R16
 R2
 R3
 R4
-Z58 8E:/CMP/CA/New folder/Pipelined-processor/phase II/ID_EX.vhd
-Z59 FE:/CMP/CA/New folder/Pipelined-processor/phase II/ID_EX.vhd
+Z59 8E:/CMP/CA/New folder/Pipelined-processor/phase II/ID_EX.vhd
+Z60 FE:/CMP/CA/New folder/Pipelined-processor/phase II/ID_EX.vhd
 l0
 L8
 VZIfbVHCQ[ZAUNX:XUloeV0
 !s100 NeKbZYBJZE>L>YYFXccFl2
 R7
 32
-R54
+R40
 !i10b 1
-Z60 !s108 1641563734.000000
+R46
 Z61 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:/CMP/CA/New folder/Pipelined-processor/phase II/ID_EX.vhd|
 Z62 !s107 E:/CMP/CA/New folder/Pipelined-processor/phase II/ID_EX.vhd|
 !i113 1
@@ -427,9 +427,9 @@ Vd4;h`8?B88=L7W8Xe[k>[2
 !s100 MT^?XI06L3OPadVi[6kHP3
 R7
 32
-R54
+R40
 !i10b 1
-R60
+R46
 R61
 R62
 !i113 1
@@ -450,9 +450,9 @@ V]CJBJ;HzoM`<hMoZM`LYZ3
 !s100 hbafQD190bn;NHWBYfLW]1
 R7
 32
-R54
+R40
 !i10b 1
-R60
+R46
 Z65 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:/CMP/CA/New folder/Pipelined-processor/phase II/IF_ID.vhd|
 Z66 !s107 E:/CMP/CA/New folder/Pipelined-processor/phase II/IF_ID.vhd|
 !i113 1
@@ -470,16 +470,16 @@ VbWh?Uc@z^azBL:PA7bX<71
 !s100 ]>`aHoSc@MBoQF50I_<l81
 R7
 32
-R54
+R40
 !i10b 1
-R60
+R46
 R65
 R66
 !i113 1
 R12
 R13
 Ememorystage
-Z67 w1641563626
+Z67 w1641565561
 R2
 R3
 R4
@@ -487,13 +487,13 @@ Z68 8E:/CMP/CA/New folder/Pipelined-processor/phase II/memory_stage.vhd
 Z69 FE:/CMP/CA/New folder/Pipelined-processor/phase II/memory_stage.vhd
 l0
 L4
-Vc?K6]3bDKc^GJG@k?2j4c1
-!s100 j6NbTd]_3?HmYDO^B2z9=1
+VFP1=Y958E7lD[BmLOh]Q80
+!s100 B;=8kgCg7WhYYP<jGidEK0
 R7
 32
-R54
+R40
 !i10b 1
-R60
+R46
 Z70 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:/CMP/CA/New folder/Pipelined-processor/phase II/memory_stage.vhd|
 Z71 !s107 E:/CMP/CA/New folder/Pipelined-processor/phase II/memory_stage.vhd|
 !i113 1
@@ -502,16 +502,16 @@ R13
 Astruct
 R2
 R3
-DEx4 work 11 memorystage 0 22 c?K6]3bDKc^GJG@k?2j4c1
+DEx4 work 11 memorystage 0 22 FP1=Y958E7lD[BmLOh]Q80
 l51
 L21
 V1i0Zo]Y6NalGLe7kA?eiP2
 !s100 ][S<U^1`?DG7mN0odBjj23
 R7
 32
-R54
+R40
 !i10b 1
-R60
+R46
 R70
 R71
 !i113 1
@@ -532,9 +532,9 @@ VcMn??3D[7=mEOJfiS<N_a0
 !s100 f`i@f=2hkD2XnEJ0L=ILe0
 R7
 32
-R54
+R40
 !i10b 1
-R60
+R46
 Z75 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:/CMP/CA/New folder/Pipelined-processor/phase II/MEM_WB.vhd|
 Z76 !s107 E:/CMP/CA/New folder/Pipelined-processor/phase II/MEM_WB.vhd|
 !i113 1
@@ -552,9 +552,9 @@ VfD=XN1V4g1Md^nR0E;>MP3
 !s100 hQENS9WMn:Mk3G3JbGmaa3
 R7
 32
-R54
+R40
 !i10b 1
-R60
+R46
 R75
 R76
 !i113 1
@@ -573,9 +573,9 @@ V?VaYQ9OIi>BGO<CO9cf:k0
 !s100 9XHJT6:gIH6n8LChLJkzF2
 R7
 32
-R54
+R40
 !i10b 1
-R60
+R46
 Z79 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:/CMP/CA/New folder/Pipelined-processor/phase II/mux.vhd|
 Z80 !s107 E:/CMP/CA/New folder/Pipelined-processor/phase II/mux.vhd|
 !i113 1
@@ -591,9 +591,9 @@ VzC4kiiElKZM3h^AGHIb^H1
 !s100 ln8GT3LeQ9fcg;>];?9j>3
 R7
 32
-R54
+R40
 !i10b 1
-R60
+R46
 R79
 R80
 !i113 1
@@ -612,9 +612,9 @@ V]Zl>6^V5Y@CiVIedzoB;=3
 !s100 hWHH3YmFDBBgMT7^9cKXN0
 R7
 32
-R54
+R40
 !i10b 1
-R60
+R46
 Z83 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:/CMP/CA/New folder/Pipelined-processor/phase II/nbitadder.vhd|
 Z84 !s107 E:/CMP/CA/New folder/Pipelined-processor/phase II/nbitadder.vhd|
 !i113 1
@@ -630,9 +630,9 @@ VF9A8gFMT67C;EZ_=OWzLR2
 !s100 ZloVUCTnJQ8Od`Yjd;RlO3
 R7
 32
-R54
+R40
 !i10b 1
-R60
+R46
 R83
 R84
 !i113 1
@@ -651,9 +651,9 @@ VoV56ZE<fPAjFo:_^_k6n61
 !s100 <GgCIKWJSDB^@JLlJWlFA3
 R7
 32
-R54
+R40
 !i10b 1
-R60
+R46
 Z87 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:/CMP/CA/New folder/Pipelined-processor/phase II/n_bit_full_adder.vhd|
 Z88 !s107 E:/CMP/CA/New folder/Pipelined-processor/phase II/n_bit_full_adder.vhd|
 !i113 1
@@ -669,71 +669,32 @@ VM61Ok5dhFS5kiR^Jmj@`J0
 !s100 nCZ46A8bHl24hnj1jN2T`0
 R7
 32
-R54
+R40
 !i10b 1
-R60
+R46
 R87
 R88
 !i113 1
 R12
 R13
-Endff
-Z89 w1641495388
-R2
-R3
-Z90 dE:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II
-Z91 8E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\falling_edge_register.vhd
-Z92 FE:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\falling_edge_register.vhd
-l0
-L9
-VbA;cEWV6RhY1mVghfNn?E0
-!s100 7l0JG@@VLkH?Ng3g^CNOE0
-Z93 OV;C;10.5b;63
-32
-Z94 !s110 1641495392
-!i10b 1
-Z95 !s108 1641495392.000000
-Z96 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\falling_edge_register.vhd|
-Z97 !s107 E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\falling_edge_register.vhd|
-!i113 1
-R12
-Z98 tExplicit 1 CvgOpt 0
-Aarch1
-R2
-R3
-DEx4 work 4 ndff 0 22 bA;cEWV6RhY1mVghfNn?E0
-l23
-L22
-V^l2Enljz2Fo^N0K4:a^I23
-!s100 Cz^m3a=@f4Rj_LbO[FEXn3
-R93
-32
-R94
-!i10b 1
-R95
-R96
-R97
-!i113 1
-R12
-R98
 Eone_bit_adder
 R0
 R2
 R3
 R4
-Z99 8E:/CMP/CA/New folder/Pipelined-processor/phase II/onebitadder.vhd
-Z100 FE:/CMP/CA/New folder/Pipelined-processor/phase II/onebitadder.vhd
+Z89 8E:/CMP/CA/New folder/Pipelined-processor/phase II/onebitadder.vhd
+Z90 FE:/CMP/CA/New folder/Pipelined-processor/phase II/onebitadder.vhd
 l0
 L4
 VHg5KNS><i0d]H_k4WQ5CH0
 !s100 0B01WKQI?7VWE]9bXXP>m2
 R7
 32
-R54
+R40
 !i10b 1
-R60
-Z101 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:/CMP/CA/New folder/Pipelined-processor/phase II/onebitadder.vhd|
-Z102 !s107 E:/CMP/CA/New folder/Pipelined-processor/phase II/onebitadder.vhd|
+R46
+Z91 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:/CMP/CA/New folder/Pipelined-processor/phase II/onebitadder.vhd|
+Z92 !s107 E:/CMP/CA/New folder/Pipelined-processor/phase II/onebitadder.vhd|
 !i113 1
 R12
 R13
@@ -747,11 +708,11 @@ V`@XAo_7>i45J9iCUfMm`R0
 !s100 jo3DJAmTfGk5RdgiR9UfY1
 R7
 32
-R54
+R40
 !i10b 1
-R60
-R101
-R102
+R46
+R91
+R92
 !i113 1
 R12
 R13
@@ -760,19 +721,19 @@ R0
 R2
 R3
 R4
-Z103 8E:/CMP/CA/New folder/Pipelined-processor/phase II/one_bit_full_adder.vhd
-Z104 FE:/CMP/CA/New folder/Pipelined-processor/phase II/one_bit_full_adder.vhd
+Z93 8E:/CMP/CA/New folder/Pipelined-processor/phase II/one_bit_full_adder.vhd
+Z94 FE:/CMP/CA/New folder/Pipelined-processor/phase II/one_bit_full_adder.vhd
 l0
 L4
 VX?m;TL3c_`9?86:lWz@nk3
 !s100 B?CUYT9S?`3iV[bX6;`zU1
 R7
 32
-R54
+R40
 !i10b 1
-R60
-Z105 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:/CMP/CA/New folder/Pipelined-processor/phase II/one_bit_full_adder.vhd|
-Z106 !s107 E:/CMP/CA/New folder/Pipelined-processor/phase II/one_bit_full_adder.vhd|
+R46
+Z95 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:/CMP/CA/New folder/Pipelined-processor/phase II/one_bit_full_adder.vhd|
+Z96 !s107 E:/CMP/CA/New folder/Pipelined-processor/phase II/one_bit_full_adder.vhd|
 !i113 1
 R12
 R13
@@ -786,32 +747,32 @@ V;VOMK_24A0XZP`Z[>JFO<1
 !s100 gnILbKYE;[3cl^g;g=0lG1
 R7
 32
-R54
+R40
 !i10b 1
-R60
-R105
-R106
+R46
+R95
+R96
 !i113 1
 R12
 R13
 Eparta
-R47
+R49
 R2
 R3
 R4
-Z107 8E:/CMP/CA/New folder/Pipelined-processor/phase II/partA.vhd
-Z108 FE:/CMP/CA/New folder/Pipelined-processor/phase II/partA.vhd
+Z97 8E:/CMP/CA/New folder/Pipelined-processor/phase II/partA.vhd
+Z98 FE:/CMP/CA/New folder/Pipelined-processor/phase II/partA.vhd
 l0
 L4
 VVi35Wj8oXN[=?`?c8Xk:Q3
 !s100 oL:^=FECHZULbllPA:fbG2
 R7
 32
-R54
+R40
 !i10b 1
-R60
-Z109 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:/CMP/CA/New folder/Pipelined-processor/phase II/partA.vhd|
-Z110 !s107 E:/CMP/CA/New folder/Pipelined-processor/phase II/partA.vhd|
+R46
+Z99 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:/CMP/CA/New folder/Pipelined-processor/phase II/partA.vhd|
+Z100 !s107 E:/CMP/CA/New folder/Pipelined-processor/phase II/partA.vhd|
 !i113 1
 R12
 R13
@@ -825,32 +786,32 @@ Vj;0REdf<Dblzij5n0[Qze2
 !s100 O3kKR3oN6eQIhiQ7OfkLU2
 R7
 32
-R54
+R40
 !i10b 1
-R60
-R109
-R110
+R46
+R99
+R100
 !i113 1
 R12
 R13
 Epartb
-Z111 w1641557265
+Z101 w1641557265
 R2
 R3
 R4
-Z112 8E:/CMP/CA/New folder/Pipelined-processor/phase II/partB.vhd
-Z113 FE:/CMP/CA/New folder/Pipelined-processor/phase II/partB.vhd
+Z102 8E:/CMP/CA/New folder/Pipelined-processor/phase II/partB.vhd
+Z103 FE:/CMP/CA/New folder/Pipelined-processor/phase II/partB.vhd
 l0
 L4
 Va1<zD[<ao6dFXkf;:P00;1
 !s100 b55jFU27]9n1KlMmz]1_^0
 R7
 32
-R54
+R40
 !i10b 1
-R60
-Z114 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:/CMP/CA/New folder/Pipelined-processor/phase II/partB.vhd|
-Z115 !s107 E:/CMP/CA/New folder/Pipelined-processor/phase II/partB.vhd|
+R46
+Z104 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:/CMP/CA/New folder/Pipelined-processor/phase II/partB.vhd|
+Z105 !s107 E:/CMP/CA/New folder/Pipelined-processor/phase II/partB.vhd|
 !i113 1
 R12
 R13
@@ -864,11 +825,11 @@ V@NUe0V2A3F08>gEI^=2H>3
 !s100 z7c2zgHVoaV0GzbP=Ko=N3
 R7
 32
-R54
+R40
 !i10b 1
-R60
-R114
-R115
+R46
+R104
+R105
 !i113 1
 R12
 R13
@@ -878,19 +839,19 @@ R1
 R2
 R3
 R4
-Z116 8E:/CMP/CA/New folder/Pipelined-processor/phase II/partC.vhd
-Z117 FE:/CMP/CA/New folder/Pipelined-processor/phase II/partC.vhd
+Z106 8E:/CMP/CA/New folder/Pipelined-processor/phase II/partC.vhd
+Z107 FE:/CMP/CA/New folder/Pipelined-processor/phase II/partC.vhd
 l0
 L5
 Vz]_<7I6;]_`nTGj6F4TE=0
 !s100 0X_ho4GdiM1E?;l4c5bmJ3
 R7
 32
-R54
+R28
 !i10b 1
-R60
-Z118 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:/CMP/CA/New folder/Pipelined-processor/phase II/partC.vhd|
-Z119 !s107 E:/CMP/CA/New folder/Pipelined-processor/phase II/partC.vhd|
+R46
+Z108 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:/CMP/CA/New folder/Pipelined-processor/phase II/partC.vhd|
+Z109 !s107 E:/CMP/CA/New folder/Pipelined-processor/phase II/partC.vhd|
 !i113 1
 R12
 R13
@@ -905,11 +866,11 @@ V_e`^l`AM:D<XjCom@k6_Y2
 !s100 JMhG[<a5mZ0JhHFHz74IT1
 R7
 32
-R54
+R28
 !i10b 1
-R60
-R118
-R119
+R46
+R108
+R109
 !i113 1
 R12
 R13
@@ -919,19 +880,19 @@ R1
 R2
 R3
 R4
-Z120 8E:/CMP/CA/New folder/Pipelined-processor/phase II/partD.vhd
-Z121 FE:/CMP/CA/New folder/Pipelined-processor/phase II/partD.vhd
+Z110 8E:/CMP/CA/New folder/Pipelined-processor/phase II/partD.vhd
+Z111 FE:/CMP/CA/New folder/Pipelined-processor/phase II/partD.vhd
 l0
 L5
 V`[be4<D]SHEi:;mhG7_7c2
 !s100 ZcA5Uh]HX@lj:@k1:Bde@3
 R7
 32
-R54
+R28
 !i10b 1
-R60
-Z122 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:/CMP/CA/New folder/Pipelined-processor/phase II/partD.vhd|
-Z123 !s107 E:/CMP/CA/New folder/Pipelined-processor/phase II/partD.vhd|
+R29
+Z112 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:/CMP/CA/New folder/Pipelined-processor/phase II/partD.vhd|
+Z113 !s107 E:/CMP/CA/New folder/Pipelined-processor/phase II/partD.vhd|
 !i113 1
 R12
 R13
@@ -946,21 +907,21 @@ V:8RC3e7iC8<ZhhHHoRj=42
 !s100 DXLnRPkK@[jU;_=G7K4<W1
 R7
 32
-R54
+R28
 !i10b 1
-R60
-R122
-R123
+R29
+R112
+R113
 !i113 1
 R12
 R13
 Epipeline_processor
-Z124 w1641563671
+Z114 w1641570214
 R2
 R3
 R4
-Z125 8E:/CMP/CA/New folder/Pipelined-processor/phase II/Pipeline_processor.vhd
-Z126 FE:/CMP/CA/New folder/Pipelined-processor/phase II/Pipeline_processor.vhd
+Z115 8E:/CMP/CA/New folder/Pipelined-processor/phase II/Pipeline_processor.vhd
+Z116 FE:/CMP/CA/New folder/Pipelined-processor/phase II/Pipeline_processor.vhd
 l0
 L7
 VPGD53X;@nM?C@id60EZ@j2
@@ -970,8 +931,8 @@ R7
 R28
 !i10b 1
 R29
-Z127 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:/CMP/CA/New folder/Pipelined-processor/phase II/Pipeline_processor.vhd|
-Z128 !s107 E:/CMP/CA/New folder/Pipelined-processor/phase II/Pipeline_processor.vhd|
+Z117 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:/CMP/CA/New folder/Pipelined-processor/phase II/Pipeline_processor.vhd|
+Z118 !s107 E:/CMP/CA/New folder/Pipelined-processor/phase II/Pipeline_processor.vhd|
 !i113 1
 R12
 R13
@@ -981,26 +942,26 @@ R3
 DEx4 work 18 pipeline_processor 0 22 PGD53X;@nM?C@id60EZ@j2
 l240
 L17
-V>;DePnCh;WV4m<?5n5EG?1
-!s100 6[nQ8nYQhANWH5WVzd]_Q3
+V7HdOT`07XD^Y66=Z=6AKR1
+!s100 1m>^Obfb_imbWKAB?EZe]2
 R7
 32
 R28
 !i10b 1
 R29
-R127
-R128
+R117
+R118
 !i113 1
 R12
 R13
 Eram
-Z129 w1641475375
+Z119 w1641567228
 R1
 R2
 R3
 R4
-Z130 8E:/CMP/CA/New folder/Pipelined-processor/phase II/ram.vhd
-Z131 FE:/CMP/CA/New folder/Pipelined-processor/phase II/ram.vhd
+Z120 8E:/CMP/CA/New folder/Pipelined-processor/phase II/ram.vhd
+Z121 FE:/CMP/CA/New folder/Pipelined-processor/phase II/ram.vhd
 l0
 L5
 VkgdlKlPg2c7mSU58`WbhU3
@@ -1010,8 +971,8 @@ R7
 R28
 !i10b 1
 R29
-Z132 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:/CMP/CA/New folder/Pipelined-processor/phase II/ram.vhd|
-Z133 !s107 E:/CMP/CA/New folder/Pipelined-processor/phase II/ram.vhd|
+Z122 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:/CMP/CA/New folder/Pipelined-processor/phase II/ram.vhd|
+Z123 !s107 E:/CMP/CA/New folder/Pipelined-processor/phase II/ram.vhd|
 !i113 1
 R12
 R13
@@ -1022,15 +983,15 @@ R3
 DEx4 work 3 ram 0 22 kgdlKlPg2c7mSU58`WbhU3
 l19
 L14
-VdC`ihQ>GFc`W:=2m[Vh4:0
-!s100 5U?h1i9AUAmLfZSP>8T^A1
+V<cD2<N?kDVEVK_oBIAYAf0
+!s100 UB3[iXiz4IDVhK6o@655D1
 R7
 32
 R28
 !i10b 1
 R29
-R132
-R133
+R122
+R123
 !i113 1
 R12
 R13
@@ -1042,8 +1003,8 @@ R1
 R2
 R3
 R4
-Z134 8E:/CMP/CA/New folder/Pipelined-processor/phase II/registerFile.vhd
-Z135 FE:/CMP/CA/New folder/Pipelined-processor/phase II/registerFile.vhd
+Z124 8E:/CMP/CA/New folder/Pipelined-processor/phase II/registerFile.vhd
+Z125 FE:/CMP/CA/New folder/Pipelined-processor/phase II/registerFile.vhd
 l0
 L9
 V_B0ba[Z<i6;^@<X9^DD0Q0
@@ -1053,8 +1014,8 @@ R7
 R28
 !i10b 1
 R29
-Z136 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:/CMP/CA/New folder/Pipelined-processor/phase II/registerFile.vhd|
-Z137 !s107 E:/CMP/CA/New folder/Pipelined-processor/phase II/registerFile.vhd|
+Z126 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:/CMP/CA/New folder/Pipelined-processor/phase II/registerFile.vhd|
+Z127 !s107 E:/CMP/CA/New folder/Pipelined-processor/phase II/registerFile.vhd|
 !i113 1
 R12
 R13
@@ -1074,18 +1035,18 @@ R7
 R28
 !i10b 1
 R29
-R136
-R137
+R126
+R127
 !i113 1
 R12
 R13
 Eresetregister
-Z138 w1641561445
+Z128 w1641561445
 R2
 R3
 R4
-Z139 8E:/CMP/CA/New folder/Pipelined-processor/phase II/resetRegister.vhd
-Z140 FE:/CMP/CA/New folder/Pipelined-processor/phase II/resetRegister.vhd
+Z129 8E:/CMP/CA/New folder/Pipelined-processor/phase II/resetRegister.vhd
+Z130 FE:/CMP/CA/New folder/Pipelined-processor/phase II/resetRegister.vhd
 l0
 L9
 VB;n@6jn]=k<Jh<d4D^BYi2
@@ -1095,26 +1056,26 @@ R7
 R28
 !i10b 1
 R29
-Z141 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:/CMP/CA/New folder/Pipelined-processor/phase II/resetRegister.vhd|
-Z142 !s107 E:/CMP/CA/New folder/Pipelined-processor/phase II/resetRegister.vhd|
+Z131 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:/CMP/CA/New folder/Pipelined-processor/phase II/resetRegister.vhd|
+Z132 !s107 E:/CMP/CA/New folder/Pipelined-processor/phase II/resetRegister.vhd|
 !i113 1
 R12
 R13
 Aresetregister
 R2
 R3
-Z143 DEx4 work 13 resetregister 0 22 B;n@6jn]=k<Jh<d4D^BYi2
+DEx4 work 13 resetregister 0 22 B;n@6jn]=k<Jh<d4D^BYi2
 l24
 L23
-Z144 V=H=BS@=<Ln2_WoU=5TUz>2
-Z145 !s100 B8PG1o9m_6]:0JCnLoE@>1
+V=H=BS@=<Ln2_WoU=5TUz>2
+!s100 B8PG1o9m_6]:0JCnLoE@>1
 R7
 32
 R28
 !i10b 1
 R29
-R141
-R142
+R131
+R132
 !i113 1
 R12
 R13
@@ -1125,8 +1086,8 @@ R16
 R2
 R3
 R4
-Z146 8E:/CMP/CA/New folder/Pipelined-processor/phase II/signExtend.vhd
-Z147 FE:/CMP/CA/New folder/Pipelined-processor/phase II/signExtend.vhd
+Z133 8E:/CMP/CA/New folder/Pipelined-processor/phase II/signExtend.vhd
+Z134 FE:/CMP/CA/New folder/Pipelined-processor/phase II/signExtend.vhd
 l0
 L8
 V;1V`N?3[GIeM:XNT]58B:3
@@ -1136,8 +1097,8 @@ R7
 R28
 !i10b 1
 R29
-Z148 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:/CMP/CA/New folder/Pipelined-processor/phase II/signExtend.vhd|
-Z149 !s107 E:/CMP/CA/New folder/Pipelined-processor/phase II/signExtend.vhd|
+Z135 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:/CMP/CA/New folder/Pipelined-processor/phase II/signExtend.vhd|
+Z136 !s107 E:/CMP/CA/New folder/Pipelined-processor/phase II/signExtend.vhd|
 !i113 1
 R12
 R13
@@ -1156,8 +1117,8 @@ R7
 R28
 !i10b 1
 R29
-R148
-R149
+R135
+R136
 !i113 1
 R12
 R13
@@ -1166,8 +1127,8 @@ R0
 R2
 R3
 R4
-Z150 8E:/CMP/CA/New folder/Pipelined-processor/phase II/writeback.vhd
-Z151 FE:/CMP/CA/New folder/Pipelined-processor/phase II/writeback.vhd
+Z137 8E:/CMP/CA/New folder/Pipelined-processor/phase II/writeback.vhd
+Z138 FE:/CMP/CA/New folder/Pipelined-processor/phase II/writeback.vhd
 l0
 L4
 VzFF]AUW15z2G@PA:GGd7M0
@@ -1177,26 +1138,26 @@ R7
 R28
 !i10b 1
 R29
-Z152 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:/CMP/CA/New folder/Pipelined-processor/phase II/writeback.vhd|
-Z153 !s107 E:/CMP/CA/New folder/Pipelined-processor/phase II/writeback.vhd|
+Z139 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:/CMP/CA/New folder/Pipelined-processor/phase II/writeback.vhd|
+Z140 !s107 E:/CMP/CA/New folder/Pipelined-processor/phase II/writeback.vhd|
 !i113 1
 R12
 R13
 Astruct
 R2
 R3
-DEx4 work 9 writeback 0 22 zFF]AUW15z2G@PA:GGd7M0
+Z141 DEx4 work 9 writeback 0 22 zFF]AUW15z2G@PA:GGd7M0
 l19
 L18
-VcC0k_:eizhP]goUQIXgak1
-!s100 <Nh5d]n;dPclWR;cN7S313
+Z142 VcC0k_:eizhP]goUQIXgak1
+Z143 !s100 <Nh5d]n;dPclWR;cN7S313
 R7
 32
 R28
 !i10b 1
 R29
-R152
-R153
+R139
+R140
 !i113 1
 R12
 R13
