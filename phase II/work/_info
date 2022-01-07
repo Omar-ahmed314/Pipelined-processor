@@ -349,26 +349,67 @@ R53
 !i113 1
 R12
 R13
+Ehazard_detection
+Z54 w1641554956
+R1
+R2
+R3
+Z55 dD:/AbeerD/College/third year/Computer Architecture/project/Pipelined-processor/phase II
+Z56 8D:/AbeerD/College/third year/Computer Architecture/project/Pipelined-processor/phase II/hazard_detection.vhd
+Z57 FD:/AbeerD/College/third year/Computer Architecture/project/Pipelined-processor/phase II/hazard_detection.vhd
+l0
+L5
+VfW@75?MGh8;1HbHS@KW<P0
+!s100 Ri2`Hn`m<eM4[7TIJ>o822
+R7
+32
+Z58 !s110 1641554958
+!i10b 1
+Z59 !s108 1641554958.000000
+Z60 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/AbeerD/College/third year/Computer Architecture/project/Pipelined-processor/phase II/hazard_detection.vhd|
+Z61 !s107 D:/AbeerD/College/third year/Computer Architecture/project/Pipelined-processor/phase II/hazard_detection.vhd|
+!i113 1
+R12
+R13
+Aa_hazard_detection
+R1
+R2
+R3
+Z62 DEx4 work 16 hazard_detection 0 22 fW@75?MGh8;1HbHS@KW<P0
+l14
+L13
+VNim1O6_kb`lzzIZ:l0gE:0
+!s100 VlfacI>RW8AbG`<YMeCS00
+R7
+32
+R58
+!i10b 1
+R59
+R60
+R61
+!i113 1
+R12
+R13
 Eidex
-Z54 w1640525016
+Z63 w1640525016
 R15
 R16
 R2
 R3
 R4
-Z55 8E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\ID_EX.vhd
-Z56 FE:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\ID_EX.vhd
+Z64 8E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\ID_EX.vhd
+Z65 FE:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\ID_EX.vhd
 l0
 L8
 VS@VDCJ>5bPz59`oLP6XWZ2
 !s100 g0`FSZQHIaHW1Nz3H^7jJ1
 R7
 32
-Z57 !s110 1640527130
+Z66 !s110 1640527130
 !i10b 1
-Z58 !s108 1640527130.000000
-Z59 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\ID_EX.vhd|
-Z60 !s107 E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\ID_EX.vhd|
+Z67 !s108 1640527130.000000
+Z68 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\ID_EX.vhd|
+Z69 !s107 E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\ID_EX.vhd|
 !i113 1
 R12
 R13
@@ -384,34 +425,34 @@ V2_R0JN_HU4K[YTBYJA^j;0
 !s100 0NQC2jS:bJeWSh8Cz1N[81
 R7
 32
-R57
+R66
 !i10b 1
-R58
-R59
-R60
+R67
+R68
+R69
 !i113 1
 R12
 R13
 Eifid
-Z61 w1640375198
+Z70 w1640375198
 R15
 R16
 R2
 R3
 R4
-Z62 8E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\IF_ID.vhd
-Z63 FE:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\IF_ID.vhd
+Z71 8E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\IF_ID.vhd
+Z72 FE:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\IF_ID.vhd
 l0
 L8
 Vz>z:R6:ginC70gKdenM>>3
 !s100 hbafQD190bn;NHWBYfLW]1
 R7
 32
-R57
+R66
 !i10b 1
-R58
-Z64 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\IF_ID.vhd|
-Z65 !s107 E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\IF_ID.vhd|
+R67
+Z73 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\IF_ID.vhd|
+Z74 !s107 E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\IF_ID.vhd|
 !i113 1
 R12
 R13
@@ -427,34 +468,34 @@ V6jNFJCD1B6d[P>@;^o<Gh0
 !s100 ]>`aHoSc@MBoQF50I_<l81
 R7
 32
-R57
+R66
 !i10b 1
-R58
-R64
-R65
+R67
+R73
+R74
 !i113 1
 R12
 R13
 Ememwb
-Z66 w1640526827
+Z75 w1640526827
 R15
 R16
 R2
 R3
 R4
-Z67 8E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\MEM_WB.vhd
-Z68 FE:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\MEM_WB.vhd
+Z76 8E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\MEM_WB.vhd
+Z77 FE:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\MEM_WB.vhd
 l0
 L8
 VA^oA0Th6WekUGf9LGDj:n2
 !s100 DVGWWCn1Nb<:fX4AHB=ZO0
 R7
 32
-Z69 !s110 1640527133
+Z78 !s110 1640527133
 !i10b 1
-Z70 !s108 1640527133.000000
-Z71 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\MEM_WB.vhd|
-Z72 !s107 E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\MEM_WB.vhd|
+Z79 !s108 1640527133.000000
+Z80 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\MEM_WB.vhd|
+Z81 !s107 E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\MEM_WB.vhd|
 !i113 1
 R12
 R13
@@ -470,11 +511,11 @@ VDL68Z^8^_SMEe4GURc?nX2
 !s100 NC6oGIK=[3L<@HBS[b?^^1
 R7
 32
-R69
+R78
 !i10b 1
-R70
-R71
-R72
+R79
+R80
+R81
 !i113 1
 R12
 R13
@@ -483,19 +524,19 @@ R45
 R2
 R3
 R4
-Z73 8E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/mux.vhd
-Z74 FE:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/mux.vhd
+Z82 8E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/mux.vhd
+Z83 FE:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/mux.vhd
 l0
 L4
 V^83;R4Tl1I_0Hc?Q<GjHk0
 !s100 9XHJT6:gIH6n8LChLJkzF2
 R7
 32
-R57
+R66
 !i10b 1
-R58
-Z75 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/mux.vhd|
-Z76 !s107 E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/mux.vhd|
+R67
+Z84 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/mux.vhd|
+Z85 !s107 E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/mux.vhd|
 !i113 1
 R12
 R13
@@ -509,11 +550,11 @@ V>j[PUT:_bQl5[=m]aS]Ki0
 !s100 ln8GT3LeQ9fcg;>];?9j>3
 R7
 32
-R57
+R66
 !i10b 1
-R58
-R75
-R76
+R67
+R84
+R85
 !i113 1
 R12
 R13
@@ -522,19 +563,19 @@ R28
 R2
 R3
 R4
-Z77 8E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/nbitadder.vhd
-Z78 FE:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/nbitadder.vhd
+Z86 8E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/nbitadder.vhd
+Z87 FE:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/nbitadder.vhd
 l0
 L5
 VURC=lJ3h<jeJ@O`eFEDJH1
 !s100 hWHH3YmFDBBgMT7^9cKXN0
 R7
 32
-R57
+R66
 !i10b 1
-R58
-Z79 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/nbitadder.vhd|
-Z80 !s107 E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/nbitadder.vhd|
+R67
+Z88 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/nbitadder.vhd|
+Z89 !s107 E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/nbitadder.vhd|
 !i113 1
 R12
 R13
@@ -548,11 +589,11 @@ V>>8@QY]3?dTCZ2FWM1]do0
 !s100 ZloVUCTnJQ8Od`Yjd;RlO3
 R7
 32
-R57
+R66
 !i10b 1
-R58
-R79
-R80
+R67
+R88
+R89
 !i113 1
 R12
 R13
@@ -561,19 +602,19 @@ R45
 R2
 R3
 R4
-Z81 8E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/n_bit_full_adder.vhd
-Z82 FE:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/n_bit_full_adder.vhd
+Z90 8E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/n_bit_full_adder.vhd
+Z91 FE:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/n_bit_full_adder.vhd
 l0
 L4
 VlhZX^2ILX0<W>UeLPSBMc3
 !s100 <GgCIKWJSDB^@JLlJWlFA3
 R7
 32
-R57
+R66
 !i10b 1
-R58
-Z83 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/n_bit_full_adder.vhd|
-Z84 !s107 E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/n_bit_full_adder.vhd|
+R67
+Z92 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/n_bit_full_adder.vhd|
+Z93 !s107 E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/n_bit_full_adder.vhd|
 !i113 1
 R12
 R13
@@ -587,11 +628,11 @@ Vhc?@@DfZ5@FhlC;J;^>ZZ1
 !s100 nCZ46A8bHl24hnj1jN2T`0
 R7
 32
-R57
+R66
 !i10b 1
-R58
-R83
-R84
+R67
+R92
+R93
 !i113 1
 R12
 R13
@@ -600,19 +641,19 @@ R28
 R2
 R3
 R4
-Z85 8E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/onebitadder.vhd
-Z86 FE:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/onebitadder.vhd
+Z94 8E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/onebitadder.vhd
+Z95 FE:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/onebitadder.vhd
 l0
 L4
 V44UjnZ:5oTe9:V`Bndl8<3
 !s100 0B01WKQI?7VWE]9bXXP>m2
 R7
 32
-Z87 !s110 1640527131
+Z96 !s110 1640527131
 !i10b 1
-Z88 !s108 1640527131.000000
-Z89 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/onebitadder.vhd|
-Z90 !s107 E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/onebitadder.vhd|
+Z97 !s108 1640527131.000000
+Z98 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/onebitadder.vhd|
+Z99 !s107 E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/onebitadder.vhd|
 !i113 1
 R12
 R13
@@ -626,11 +667,11 @@ VE6jfb[n>m4h_YP_M>R5G]2
 !s100 jo3DJAmTfGk5RdgiR9UfY1
 R7
 32
-R87
+R96
 !i10b 1
-R88
-R89
-R90
+R97
+R98
+R99
 !i113 1
 R12
 R13
@@ -639,19 +680,19 @@ R45
 R2
 R3
 R4
-Z91 8E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/one_bit_full_adder.vhd
-Z92 FE:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/one_bit_full_adder.vhd
+Z100 8E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/one_bit_full_adder.vhd
+Z101 FE:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/one_bit_full_adder.vhd
 l0
 L4
 Vg^0kz9aC9HZoBh8EXOjBP0
 !s100 B?CUYT9S?`3iV[bX6;`zU1
 R7
 32
-R87
+R96
 !i10b 1
-R88
-Z93 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/one_bit_full_adder.vhd|
-Z94 !s107 E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/one_bit_full_adder.vhd|
+R97
+Z102 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/one_bit_full_adder.vhd|
+Z103 !s107 E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/one_bit_full_adder.vhd|
 !i113 1
 R12
 R13
@@ -665,32 +706,32 @@ VFz56z]obhfJKOW?ARa7IG0
 !s100 gnILbKYE;[3cl^g;g=0lG1
 R7
 32
-R87
+R96
 !i10b 1
-R88
-R93
-R94
+R97
+R102
+R103
 !i113 1
 R12
 R13
 Eparta
-Z95 w1640513023
+Z104 w1640513023
 R2
 R3
 R4
-Z96 8E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\partA.vhd
-Z97 FE:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\partA.vhd
+Z105 8E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\partA.vhd
+Z106 FE:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\partA.vhd
 l0
 L4
 Vf6QAlY4JN]^<65iSDSUiA3
 !s100 oL:^=FECHZULbllPA:fbG2
 R7
 32
-R87
+R96
 !i10b 1
-R88
-Z98 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\partA.vhd|
-Z99 !s107 E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\partA.vhd|
+R97
+Z107 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\partA.vhd|
+Z108 !s107 E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\partA.vhd|
 !i113 1
 R12
 R13
@@ -704,11 +745,11 @@ VLIP7IMF=lURbb>:zEL[^m0
 !s100 R[AVcW>87FECkmKQc>BfZ0
 R7
 32
-R87
+R96
 !i10b 1
-R88
-R98
-R99
+R97
+R107
+R108
 !i113 1
 R12
 R13
@@ -717,19 +758,19 @@ R45
 R2
 R3
 R4
-Z100 8E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\partB.vhd
-Z101 FE:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\partB.vhd
+Z109 8E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\partB.vhd
+Z110 FE:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\partB.vhd
 l0
 L4
 V<ghzaaCCaFBo^VgF5X04M2
 !s100 b55jFU27]9n1KlMmz]1_^0
 R7
 32
-R87
+R96
 !i10b 1
-R88
-Z102 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\partB.vhd|
-Z103 !s107 E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\partB.vhd|
+R97
+Z111 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\partB.vhd|
+Z112 !s107 E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\partB.vhd|
 !i113 1
 R12
 R13
@@ -743,22 +784,22 @@ Vh>7Zj3h3ea?EBhU^D_=GF2
 !s100 4]]9OlI=M:SaCI_PR5i<f0
 R7
 32
-R87
+R96
 !i10b 1
-R88
-R102
-R103
+R97
+R111
+R112
 !i113 1
 R12
 R13
 Epartc
-Z104 w1640519058
+Z113 w1640519058
 R1
 R2
 R3
 R4
-Z105 8E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\partC.vhd
-Z106 FE:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\partC.vhd
+Z114 8E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\partC.vhd
+Z115 FE:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\partC.vhd
 l0
 L5
 VHaD]6ofm[`e@zdVCoeNN13
@@ -767,9 +808,9 @@ R7
 32
 R32
 !i10b 1
-R88
-Z107 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\partC.vhd|
-Z108 !s107 E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\partC.vhd|
+R97
+Z116 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\partC.vhd|
+Z117 !s107 E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\partC.vhd|
 !i113 1
 R12
 R13
@@ -786,20 +827,20 @@ R7
 32
 R32
 !i10b 1
-R88
-R107
-R108
+R97
+R116
+R117
 !i113 1
 R12
 R13
 Epartd
-Z109 w1640519141
+Z118 w1640519141
 R1
 R2
 R3
 R4
-Z110 8E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/partD.vhd
-Z111 FE:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/partD.vhd
+Z119 8E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/partD.vhd
+Z120 FE:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/partD.vhd
 l0
 L5
 VS_YL::cP@ZTdbTBoiS8Sg0
@@ -809,8 +850,8 @@ R7
 R32
 !i10b 1
 R33
-Z112 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/partD.vhd|
-Z113 !s107 E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/partD.vhd|
+Z121 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/partD.vhd|
+Z122 !s107 E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/partD.vhd|
 !i113 1
 R12
 R13
@@ -828,58 +869,58 @@ R7
 R32
 !i10b 1
 R33
-R112
-R113
+R121
+R122
 !i113 1
 R12
 R13
 Epipeline_processor
-Z114 w1640529079
+Z123 w1640529079
 R2
 R3
 R4
-Z115 8E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\Pipeline_processor.vhd
-Z116 FE:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\Pipeline_processor.vhd
+Z124 8E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\Pipeline_processor.vhd
+Z125 FE:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\Pipeline_processor.vhd
 l0
 L4
 VndonCQaDFMDCgRdMkbd7@3
 !s100 BaX7MUi[5>55eF31bL=d60
 R7
 32
-Z117 !s110 1640529101
+Z126 !s110 1640529101
 !i10b 1
-Z118 !s108 1640529101.000000
-Z119 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\Pipeline_processor.vhd|
-Z120 !s107 E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\Pipeline_processor.vhd|
+Z127 !s108 1640529101.000000
+Z128 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\Pipeline_processor.vhd|
+Z129 !s107 E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\Pipeline_processor.vhd|
 !i113 1
 R12
 R13
 Aarch1
 R2
 R3
-Z121 DEx4 work 18 pipeline_processor 0 22 ndonCQaDFMDCgRdMkbd7@3
+DEx4 work 18 pipeline_processor 0 22 ndonCQaDFMDCgRdMkbd7@3
 l138
 L9
 V^dhMkdHndN;jmg[2nda6<2
 !s100 iE_cN@VbZDXeWckZW]gVM3
 R7
 32
-R117
+R126
 !i10b 1
-R118
-R119
-R120
+R127
+R128
+R129
 !i113 1
 R12
 R13
 Eram
-Z122 w1640374405
+Z130 w1640374405
 R1
 R2
 R3
 R4
-Z123 8E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/ram.vhd
-Z124 FE:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/ram.vhd
+Z131 8E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/ram.vhd
+Z132 FE:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/ram.vhd
 l0
 L5
 VfdIY0[C2ndWJ6]TS_=GBA1
@@ -889,8 +930,8 @@ R7
 R32
 !i10b 1
 R33
-Z125 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/ram.vhd|
-Z126 !s107 E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/ram.vhd|
+Z133 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/ram.vhd|
+Z134 !s107 E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/ram.vhd|
 !i113 1
 R12
 R13
@@ -908,32 +949,32 @@ R7
 R32
 !i10b 1
 R33
-R125
-R126
+R133
+R134
 !i113 1
 R12
 R13
 Eregisterfile
-Z127 w1640528662
+Z135 w1640528662
 R15
 R16
 R1
 R2
 R3
 R4
-Z128 8E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\registerFile.vhd
-Z129 FE:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\registerFile.vhd
+Z136 8E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\registerFile.vhd
+Z137 FE:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\registerFile.vhd
 l0
 L9
 VRTJ@AjkdXBdUDJYSMFi;_0
 !s100 i<AUzG_z3`?5IV@BndCge0
 R7
 32
-Z130 !s110 1640528667
+Z138 !s110 1640528667
 !i10b 1
-Z131 !s108 1640528666.000000
-Z132 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\registerFile.vhd|
-Z133 !s107 E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\registerFile.vhd|
+Z139 !s108 1640528666.000000
+Z140 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\registerFile.vhd|
+Z141 !s107 E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\registerFile.vhd|
 !i113 1
 R12
 R13
@@ -950,11 +991,11 @@ VY4CGT7MI9Bj0jlnX0?D5i2
 !s100 nZ1W_KSV^jCT74A8Ol<Wg1
 R7
 32
-R130
+R138
 !i10b 1
-R131
-R132
-R133
+R139
+R140
+R141
 !i113 1
 R12
 R13
@@ -965,19 +1006,19 @@ R16
 R2
 R3
 R4
-Z134 8E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/signExtend.vhd
-Z135 FE:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/signExtend.vhd
+Z142 8E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/signExtend.vhd
+Z143 FE:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/signExtend.vhd
 l0
 L8
 V2>3SOk5jVMPNVQKdP=?M<1
 !s100 9U_UID3Uki8a:1FOUeb^g3
 R7
 32
-R69
+R78
 !i10b 1
 R33
-Z136 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/signExtend.vhd|
-Z137 !s107 E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/signExtend.vhd|
+Z144 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/signExtend.vhd|
+Z145 !s107 E:/study affairs/syllabus/3rd year/1st semester/Computer Architecture/Project/Pipelined-processor/phase II/signExtend.vhd|
 !i113 1
 R12
 R13
@@ -993,32 +1034,32 @@ Vz6;oJJlbT6_29V9lQ^zYE2
 !s100 FS_EnAIeneEDU[8M;RKX=1
 R7
 32
-R69
+R78
 !i10b 1
 R33
-R136
-R137
+R144
+R145
 !i113 1
 R12
 R13
 Ewriteback
-Z138 w1640527152
+Z146 w1640527152
 R2
 R3
 R4
-Z139 8E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\writeback.vhd
-Z140 FE:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\writeback.vhd
+Z147 8E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\writeback.vhd
+Z148 FE:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\writeback.vhd
 l0
 L4
 VPJ9RXiNQcHZQ;;_nPa8Bc3
 !s100 ::;K@`MLlNVh<1P?]0>^n3
 R7
 32
-Z141 !s110 1640527154
+Z149 !s110 1640527154
 !i10b 1
-Z142 !s108 1640527154.000000
-Z143 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\writeback.vhd|
-Z144 !s107 E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\writeback.vhd|
+Z150 !s108 1640527154.000000
+Z151 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\writeback.vhd|
+Z152 !s107 E:\study affairs\syllabus\3rd year\1st semester\Computer Architecture\Project\Pipelined-processor\phase II\writeback.vhd|
 !i113 1
 R12
 R13
@@ -1032,11 +1073,11 @@ VlhmPE@Y6c?96oUjLzWbLT0
 !s100 <Nh5d]n;dPclWR;cN7S313
 R7
 32
-R141
+R149
 !i10b 1
-R142
-R143
-R144
+R150
+R151
+R152
 !i113 1
 R12
 R13

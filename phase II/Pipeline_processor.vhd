@@ -149,11 +149,12 @@ fetch_stage: fetch port map(fetchStage_ip_instMemory, fetchStage_mux_ip, fetchSt
 if_id: IFID generic map(32) port map('1', clk, reset, fetchStage_instMemory_IF_ID, decodeStage_IF_ID_out);
 
 -- decoding stage --
-hazardDetect <= '0';
+--hazardDetect <= '0';
 
 register_file: registerFile generic map(16) port map(clk, reset, wb_enable, decodeStage_IF_ID_out(26 downto 24), decodeStage_IF_ID_out(23 downto 21), writeBackStage_IM_IWB_registerFile_dataAddress, writeBackStage_IM_IWB_registerFile_writeData,decodeStage_registerFileOut1_ID_IE, decodeStage_registerFileOut2_ID_IE);
 controlU : controlUnit generic map(16) port map(hazardDetect, decodeStage_IF_ID_out(31 downto 27),controlSignals(0),controlSignals(1),controlSignals(2),controlSignals(3),controlSignals(4),controlSignals(5),controlSignals(6),controlSignals(7),controlSignals(8),controlSignals(9),controlSignals(10),controlSignals(14 downto 11));
 id_ex: IDEX generic map(16) port map('1', clk, reset,decodeStage_registerFileOut1_ID_IE,decodeStage_registerFileOut2_ID_IE, decodeStage_IF_ID_out(26 downto 24), controlSignals, IDEX_Out);
+hd: hazard_detection port map(IDEX_Out, decodeStage_IF_ID_out, hazard_detect);
 
 -- ALU stage --
 ALSU_Stage : ALSU generic map(16) port map(IDEX_Out(15 downto 0), IDEX_Out(31 downto 16), IDEX_Out(46 downto 43),ALU_out,ALU_cout,'0');
