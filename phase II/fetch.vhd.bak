@@ -52,7 +52,7 @@ signal addedvalue: std_logic_vector(19 downto 0);
 signal instructionread: std_logic_vector(31 downto 0);
 begin
 	
-	inmem: ram PORT MAP('0', ip_in, '0', '0',temp, instructionread);
+	inmem: ram PORT MAP('0', ip_in, '0',temp, instructionread);
 	instruction <= instructionread;
 	v: fetchaddedvalue PORT MAP(instructionread(31 downto 27), addedvalue);
 	a: n_bit_full_adder GENERIC MAP(20) PORT MAP(ip_in,addedvalue, '0', couttemp, tempadder);

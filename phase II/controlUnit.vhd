@@ -170,22 +170,26 @@ begin
 -----------------------------------------------------------------------------------------------------------
 
 			elsif(opCode = "11000") then -- JZ
-				alu_selection <= "ZZZZ";
+				alu_selection <= "0000";
+				NO_OP <= '1';
 				brachEn <= '1';
 				flagChange <= '1';
 			elsif(opCode = "11001") then -- JN
-				alu_selection <= "ZZZZ";
+				alu_selection <= "0000";
+				NO_OP <= '1';
 				brachEn <= '1';
 				flagChange <= '1';
 			elsif(opCode = "11010") then -- JC
-				alu_selection <= "ZZZZ";
+				alu_selection <= "0000";
+				NO_OP <= '1';
 				brachEn <= '1';
 				flagChange <= '1';
 			elsif(opCode = "11011") then -- JMP
-				alu_selection <= "ZZZZ";
+				alu_selection <= "0000";
+				NO_OP <= '1';
 				brachEn <= '1';
 			elsif(opCode = "11100") then -- CALL
-				alu_selection <= "ZZZZ";
+				alu_selection <= "0000";
 				brachEn <= '1';
 				MEM_W_EN <= '1';
 				isStack<= '0'; 

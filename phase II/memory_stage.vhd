@@ -1,6 +1,6 @@
 Library ieee;
 use ieee.std_logic_1164.all;
-
+USE IEEE.numeric_std.all;
 entity memoryStage is 
 
 port(
@@ -25,9 +25,9 @@ COMPONENT ram IS
 		we  : IN std_logic;
 		address : IN  std_logic_vector(19 DOWNTO 0);
 		isSixteen : IN std_logic;
+		isDataMemory: IN std_logic;
 		datain  : IN  std_logic_vector(31 DOWNTO 0);
-		dataout : OUT std_logic_vector(31 DOWNTO 0)
-);
+		dataout : OUT std_logic_vector(31 DOWNTO 0));
 END COMPONENT;
 
 COMPONENT n_bit_full_adder is
@@ -69,7 +69,7 @@ begin
 	isSixteen <= '1' when (isStack = '1' and isPush = '1') or isStore ='1'
            else  '0';
 	
-	datamem: ram PORT MAP(we, accessAddress, isSixteen, datain, dataout);
+	datamem: ram PORT MAP(we, accessAddress, isSixteen, '1', datain, dataout);
 
 	spOut <= spOutResult;
 
