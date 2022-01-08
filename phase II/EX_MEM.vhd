@@ -27,8 +27,7 @@ begin
 	process(clk,reset)
 	begin
 	if(reset = '1') then
-		output <= (others => '0');
-
+		output(53 downto 0) <= (others => '0');
 	elsif (rising_edge(clk)) then		
 		if(we = '1') then
 			output(53 downto 38) <= rsrc1; 

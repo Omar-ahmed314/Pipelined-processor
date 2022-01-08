@@ -1,10 +1,12 @@
 Library ieee;
 use ieee.std_logic_1164.all;
 USE IEEE.numeric_std.all;
+
 entity memoryStage is 
 
 port(
 	--memoryEnabled: in std_logic;
+	reset: in std_logic;
 	isStack: in std_logic;
 	isPush: in std_logic;
 	isStore: in std_logic;
@@ -13,7 +15,8 @@ port(
 	address: in std_logic_vector(31 downto 0);
 	datain: in std_logic_vector (31 downto 0);
 	dataout: out std_logic_vector (31 downto 0);
-	spOut: out std_logic_vector (31 downto 0)
+	spOut: out std_logic_vector (31 downto 0);
+	isExceptionOut: OUT std_logic
 );
 
 end entity;
@@ -27,7 +30,9 @@ COMPONENT ram IS
 		isSixteen : IN std_logic;
 		isDataMemory: IN std_logic;
 		datain  : IN  std_logic_vector(31 DOWNTO 0);
-		dataout : OUT std_logic_vector(31 DOWNTO 0));
+		dataout : OUT std_logic_vector(31 DOWNTO 0)
+		
+		);
 END COMPONENT;
 
 COMPONENT n_bit_full_adder is
@@ -47,29 +52,42 @@ signal coutsignal: std_logic;
 signal addedValue: std_logic_vector(31 downto 0);
 signal accessAddress: std_logic_vector(19 downto 0);
 signal dataReadOut: std_logic_vector(31 downto 0);
+signal addressComparison: std_logic_vector(31 downto 0);
+signal isException: std_logic;
 
 begin
 	
 
-	addedValue <= "11111111111111111111111111111111" when isStack ='1' and isPush ='1'
-           else  "11111111111111111111111111111110" when isFunction ='1' and isPush ='1'
-	   else "00000000000000000000000000000001" when isStack ='1'
-	   else "00000000000000000000000000000010" when isFunction ='1'
+	addedValue <= "11111111111111111111111111111111" when isStack ='1' and isPush ='1' and isException ='0'
+           else  "11111111111111111111111111111110" when isFunction ='1' and isPush ='1' and isException ='0'
+	   else "00000000000000000000000000000001" when isStack ='1' and isException ='0'
+	   else "00000000000000000000000000000010" when isFunction ='1' and isException ='0'
 	   else "00000000000000000000000000000000";
 
 	adder: n_bit_full_adder GENERIC MAP(32) PORT MAP(spIn, addedValue, '0', coutsignal, spOutResult);
 
-	we <= '1' when isPush ='1' or isStore ='1'
+	we <= '1' when (isPush ='1' or isStore ='1') and isException ='0'
            else  '0';
 
-	accessAddress <= spIn(19 downto 0) when isPush ='1'
+	addressComparison <= std_logic_vector(65280-(signed(address)));
+
+	isException <= '1' when ((isStack ='1' or isFunction='1') and isPush ='0' and isStore ='0' and spIn = x"000FFFFF") or ((isStack ='0' and isFunction='0') and addressComparison(31) = '1')
+			else '0';
+
+
+	accessAddress <= x"00001" when reset = '1'
+		else x"00003" when ((isStack ='1' or isFunction='1') and isPush ='0' and isStore ='0' and spIn = x"000FFFFF")
+		else x"00005" when ((isStack ='0' and isFunction='0') and addressComparison(31) = '1')
+		else spIn(19 downto 0) when isPush ='1'
 		else spOutResult(19 downto 0) when (isStack = '1' or isFunction = '1') and isPush = '0'
 		else address(19 downto 0);
 
-	isSixteen <= '1' when (isStack = '1' and isPush = '1') or isStore ='1'
+	isSixteen <= '1' when ((isStack = '1' and isPush = '1') or isStore ='1') and isException ='0'
            else  '0';
 	
 	datamem: ram PORT MAP(we, accessAddress, isSixteen, '1', datain, dataout);
+
+	isExceptionOut <= isException;
 
 	spOut <= spOutResult;
 

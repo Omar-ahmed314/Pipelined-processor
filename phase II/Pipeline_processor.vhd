@@ -67,7 +67,7 @@ END COMPONENT;
 component IFID is
 GENERIC ( n : INTEGER := 32 );
 	port( 
-		we, clk, reset: in std_logic;
+		we, clk, reset, flush: in std_logic;
 		ip_in: in std_logic_vector(15 downto 0);
 		instr: in std_logic_vector(n-1 downto 0); 
 		output: out std_logic_vector(n - 1 downto 0);
@@ -104,7 +104,7 @@ component IDEX is
 GENERIC ( n : INTEGER := 32 );
 
 	port(
-		bufferEn2, clk,reset: in std_logic;
+		bufferEn2, clk,reset,flush: in std_logic;
 		ip_in: in std_logic_vector(15 downto 0);
 		opcode_in: std_logic_vector(4 downto 0);
 		Rs, Rt: in std_logic_vector(n-1 downto 0);
@@ -190,7 +190,7 @@ end component;
 
 component memoryStage is
 port(
-	--memoryEnabled: in std_logic;
+	reset: in std_logic;
 	isStack: in std_logic;
 	isPush: in std_logic;
 	isStore: in std_logic;
@@ -199,7 +199,8 @@ port(
 	address: in std_logic_vector(31 downto 0);
 	datain: in std_logic_vector (31 downto 0);
 	dataout: out std_logic_vector (31 downto 0);
-	spOut: out std_logic_vector (31 downto 0)
+	spOut: out std_logic_vector (31 downto 0);
+	isExceptionOut: OUT std_logic
 );
 
 end component;
@@ -222,7 +223,8 @@ hazard_detect: out std_logic
 end component;
 
 component forward_unit is
-port(	rSrc1, rSrc2, rDstAlu, rDstMem: in std_logic_vector(2 downto 0);
+port(	clk: std_logic;
+ rSrc1, rSrc2, rDstAlu, rDstMem: in std_logic_vector(2 downto 0);
 	alu_wb_ctrl, mem_wb_ctrl:	in std_logic;
 	select1, select2: 		out std_logic_vector(1 downto 0));
 end component;
@@ -231,6 +233,7 @@ end component;
 signal flush: std_logic;
 -- fetch stage signals --
 signal fetchStage_ip_instMemory: std_logic_vector(19 downto 0);
+signal flush_ifid: std_logic;
 signal fetchStage_instMemory_IF_ID: std_logic_vector(31 downto 0);
 signal fetchStage_mux_ip: std_logic_vector(19 downto 0);
 signal decodeStage_IF_ID_out: std_logic_vector(31 downto 0);
@@ -244,6 +247,7 @@ signal decodeStage_registerFileOut2_ID_IE: std_logic_vector(15 downto 0);
 signal hazardDetect: std_logic;
 signal controlSignals: std_logic_vector(18 downto 0);
 signal IDEX_Out: std_logic_vector(69 downto 0);
+signal flush_idex: std_logic;
 signal decode_execute_source2: std_logic_vector(15 downto 0);
 signal conrtol_zero_flag_out, conrtol_negative_flag_out, conrtol_carry_flag_out: std_logic;
 signal hazard_detect: std_logic;
@@ -284,6 +288,7 @@ signal EXMEM_Out: std_logic_vector(53 downto 0);
 signal datain_memory: std_logic_vector(31 downto 0);
 signal addressin_memory: std_logic_vector(31 downto 0);
 signal ex_mem_data_in: std_logic_vector(15 downto 0);
+signal isException_out: std_logic;
 
 signal jump_execute_mem : std_logic;
 signal jmpinst_mem: std_logic_vector(19 downto 0);
@@ -299,12 +304,13 @@ begin
 
 --wb_enable <= '0';
 --jumpinstruction <= '0';
-flush <= jump_execute or reset;
+flush_ifid <= jump_execute;
+flush_idex <= jump_execute_mem;
 -- fetch stage --
 
-instruction_pointer: DFF generic map(20) port map(fetchStage_mux_ip, clk, reset, '1', fetchStage_ip_instMemory);
+instruction_pointer: resetRegister generic map(20) port map(fetchStage_mux_ip, clk, reset, '1',memorydataoutput(19 downto 0), fetchStage_ip_instMemory);
 fetch_stage: fetch port map(fetchStage_ip_instMemory, jump_execute, jmpinst, fetchStage_mux_ip, fetchStage_instMemory_IF_ID, hazard_detect);
-if_id: IFID generic map(32) port map(not_hazard_detect, clk, reset, fetchStage_ip_instMemory(15 downto 0), fetchStage_instMemory_IF_ID, decodeStage_IF_ID_out, IF_ID_Out_IP);
+if_id: IFID generic map(32) port map(not_hazard_detect, clk, reset, flush_ifid,fetchStage_ip_instMemory(15 downto 0), fetchStage_instMemory_IF_ID, decodeStage_IF_ID_out, IF_ID_Out_IP);
 not_hazard_detect <= not hazard_detect;
 -- decoding stage --
 hazardDetect <= '0';
@@ -315,7 +321,7 @@ controlU : controlUnit generic map(16) port map(hazardDetect, decodeStage_IF_ID_
 --decode_execute_source2 <= decodeStage_registerFileOut2_ID_IE when controlSignals(2) = '0'
 --	else decodeStage_IF_ID_out(17 downto 2);
 
-id_ex: IDEX generic map(16) port map('1', clk, reset, IF_ID_Out_IP, decodeStage_IF_ID_out(31 downto 27), decodeStage_registerFileOut1_ID_IE,decodeStage_registerFileOut2_ID_IE, decodeStage_IF_ID_out(20 downto 18), decodeStage_IF_ID_out(26 downto 24), decodeStage_IF_ID_out(23 downto 21), controlSignals, decodeStage_IF_ID_out(17 downto 2),conrtol_zero_flag_out,conrtol_negative_flag_out,conrtol_carry_flag_out, IDEX_Out,zero_enable, negative_enable,carry_enable , opcode_execution, ID_EX_IP_Out, Rsrc1_address, Rsrc2_address);
+id_ex: IDEX generic map(16) port map('1', clk, reset, flush_idex, IF_ID_Out_IP, decodeStage_IF_ID_out(31 downto 27), decodeStage_registerFileOut1_ID_IE,decodeStage_registerFileOut2_ID_IE, decodeStage_IF_ID_out(20 downto 18), decodeStage_IF_ID_out(26 downto 24), decodeStage_IF_ID_out(23 downto 21), controlSignals, decodeStage_IF_ID_out(17 downto 2),conrtol_zero_flag_out,conrtol_negative_flag_out,conrtol_carry_flag_out, IDEX_Out,zero_enable, negative_enable,carry_enable , opcode_execution, ID_EX_IP_Out, Rsrc1_address, Rsrc2_address);
 hd: hazard_detection port map(IDEX_Out, decodeStage_IF_ID_out, hazard_detect);
 decode_muxOfControlAndHazardUnit_IDIX <= controlSignals when hazard_detect = '0'
 	else (Others => '0');
@@ -335,7 +341,7 @@ forward_mux_alu_input2 <= EXMEM_Out(37 downto 22) when forward_mux_selection2 = 
 	else writeBackStage_IM_IWB_registerFile_writeData when forward_mux_selection2 = "10"
 	else ALU_input2;
 
-forwardUnit : forward_unit port map(Rsrc1_address, Rsrc2_address, EXMEM_Out(21 downto 19), writeBackStage_IM_IWB_registerFile_dataAddress, EXMEM_Out(4), wb_enable, forward_mux_selection1, forward_mux_selection2);
+forwardUnit : forward_unit port map(clk,Rsrc1_address, Rsrc2_address, EXMEM_Out(21 downto 19), writeBackStage_IM_IWB_registerFile_dataAddress, EXMEM_Out(4), wb_enable, forward_mux_selection1, forward_mux_selection2);
 ALSU_Stage : ALSU generic map(16) port map(forward_mux_alu_input1, forward_mux_alu_input2, IDEX_Out(46 downto 43),ALU_out,ALU_cout,'0');
 carry_signal <= '1' when IDEX_out(40) = '1'
 		else ALU_cout;
@@ -349,7 +355,9 @@ carryFlag: DFF_oneBit port map(CCR(2), clk, reset, carry_enable, CRR_Out(2));
 
 execution_stage_output <= inputData when IDEX_Out(41) = '1'
 	else ALU_out;
-outputData <= IDEX_Out(31 downto 16) when IDEX_Out(42) = '1'
+outputData <= EXMEM_Out(37 downto 22) when forward_mux_selection1 = "01" and IDEX_Out(42) = '1' 
+	else writeBackStage_IM_IWB_registerFile_writeData when forward_mux_selection1 = "10" and IDEX_Out(42) = '1'
+	else IDEX_Out(31 downto 16) when IDEX_Out(42) = '1'
 	else (others => 'Z');
 ---- branching -----
 jmpinst_ex <= "0000"&IDEX_Out(31 downto 16);
@@ -370,11 +378,11 @@ stack_pointer: resetRegister generic map(32) port map(stackPointer_Mem_Input, cl
 datain_memory <= x"0000" & EXMEM_Out(53 downto 38);
 addressin_memory <= x"0000" & EXMEM_Out(37 downto 22);
 
-Mem_stage: memoryStage port map(EXMEM_Out(15),EXMEM_Out(16),EXMEM_Out(17),EXMEM_Out(18), stackPointer_Output_Mem, addressin_memory , datain_memory,  memorydataoutput, stackPointer_Mem_Input); 
+Mem_stage: memoryStage port map(reset,EXMEM_Out(15),EXMEM_Out(16),EXMEM_Out(17),EXMEM_Out(18), stackPointer_Output_Mem, addressin_memory , datain_memory,  memorydataoutput, stackPointer_Mem_Input, isException_Out); 
 
 ---return---
 jmpinst_mem <= memorydataoutput(19 downto 0);
-jump_execute_mem <= '1' when EXMEM_Out(15)='0' and EXMEM_Out(16)='0' and EXMEM_Out(17)='0' and EXMEM_Out(18) ='1'
+jump_execute_mem <= '1' when isException_Out ='1' or (EXMEM_Out(15)='0' and EXMEM_Out(16)='0' and EXMEM_Out(17)='0' and EXMEM_Out(18) ='1')
 			else '0';
 
 jmpinst <= jmpinst_mem when jump_execute_mem = '1'

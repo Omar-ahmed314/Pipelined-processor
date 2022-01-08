@@ -12,22 +12,37 @@ use ieee.std_logic_1164.all;
 -- select1: The select signal forwards to the mux1 at the alu source1
 -- select2: The select signal forwards to the mux2 at the alu source2
 entity forward_unit is
-port(	rSrc1, rSrc2, rDstAlu, rDstMem: in std_logic_vector(2 downto 0);
+port(	clk: std_logic;
+ rSrc1, rSrc2, rDstAlu, rDstMem: in std_logic_vector(2 downto 0);
 	alu_wb_ctrl, mem_wb_ctrl:	in std_logic;
 	select1, select2: 		out std_logic_vector(1 downto 0));
 end entity;
 
 architecture arch1 of forward_unit is
 begin
-select1 <= "00" when alu_wb_ctrl = '0' and mem_wb_ctrl = '0'
-	else "01" when rSrc1 = rDstAlu and rSrc1 = rDstMem -- if the source matchs both stages, select the recent one at alu
-	else "01" when rSrc1 = rDstAlu
-	else "10" when rSrc1 = rDstMem
+--process(clk)
+--begin 
+--if (clk='0') then
+select1 <= "01" when rSrc1 = rDstAlu and alu_wb_ctrl ='1'  -- if the source matchs both stages, select the recent one at alu
+	else "10" when rSrc1 = rDstMem and mem_wb_ctrl = '1'
 	else "00";					   -- if there is no dependency, select that comes from the decoder
-
-select2 <= "00" when alu_wb_ctrl = '0' and mem_wb_ctrl = '0'
-	else "01" when rSrc2 = rDstAlu and rSrc2 = rDstMem
-	else "01" when rSrc2 = rDstAlu
-	else "10" when rSrc2 = rDstMem
+	--if ( rSrc1 = rDstAlu and alu_wb_ctrl ='1') then
+		--select1 <= "01";
+	--elsif (rSrc1 = rDstMem and mem_wb_ctrl = '1') then 
+		--select1 <= "10";
+	--else 
+		--select1 <= "00";
+	--end if;
+select2 <= "01"when rSrc2 = rDstAlu and alu_wb_ctrl ='1'
+	else "10" when rSrc2 = rDstMem and mem_wb_ctrl = '1'
 	else "00";
+	--if ( rSrc2 = rDstAlu and alu_wb_ctrl ='1') then
+		--select2 <= "01";
+	--elsif (rSrc2 = rDstMem and mem_wb_ctrl = '1') then 
+		--select2 <= "10";
+	--else 
+		--select2 <= "00";
+	--end if;
+--end if ;
+e--nd process;
 end architecture;

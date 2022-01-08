@@ -10,7 +10,7 @@ entity IDEX is
 GENERIC ( n : INTEGER := 16 );
 
 	port(
-		bufferEn2, clk,reset: in std_logic;
+		bufferEn2, clk,reset,flush: in std_logic;
 		ip_in: in std_logic_vector(15 downto 0);
 		opcode_in: std_logic_vector(4 downto 0);
 		Rs, Rt: in std_logic_vector(n-1 downto 0);
@@ -34,7 +34,7 @@ begin
 
 	process(clk)
 	begin
-		if(reset = '1') then
+		if(reset = '1' or flush='1') then
 			output <= (others => '0');
 			zfOut <= '0';
 			nfOut <= '0';

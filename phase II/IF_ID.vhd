@@ -10,7 +10,7 @@ entity IFID is
 GENERIC ( n : INTEGER := 32 );
 
 	port( -- TODO reset register --
-		we, clk, reset: in std_logic;
+		we, clk, reset, flush: in std_logic;
 		ip_in: in std_logic_vector(15 downto 0);
 		instr: in std_logic_vector(n-1 downto 0); 
 		output: out std_logic_vector(n - 1 downto 0);
@@ -25,7 +25,7 @@ begin
 
 	process(clk,reset)
 	begin
-	if(reset = '1') then
+	if(reset = '1' or flush ='1') then
 		output <= (others => '0');
 		ip_out <= (others => '0');
 	elsif (rising_edge(clk)) then		
