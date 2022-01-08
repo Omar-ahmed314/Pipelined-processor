@@ -12,6 +12,6 @@ end hazard_detection;
 
 architecture a_hazard_detection of hazard_detection is
 begin
-hazard_detect <= '1' when IDEX_Out(36) = '1' and (IDEX_Out(53 downto 51) = IFID_Out(26 downto 24) or IDEX_Out(53 downto 51) = IFID_Out(23 downto 21))
+hazard_detect <= '1' when IDEX_Out(37) = '1'and IDEX_Out(50 downto 47) = "0000" and (IDEX_Out(53 downto 51) = IFID_Out(26 downto 24) or IDEX_Out(53 downto 51) = IFID_Out(23 downto 21))
 		else '0';
 end a_hazard_detection;
