@@ -26,7 +26,8 @@ ip_in : in std_logic_vector(19 downto 0);
 jumpinstSel: in std_logic;
 jumpinst: in std_logic_vector(19 downto 0);
 ip_out: out std_logic_vector(19 downto 0);
-instruction : out std_logic_vector(31 downto 0));
+instruction : out std_logic_vector(31 downto 0);
+hazard_detect: in std_logic);
 
 end component;
 
@@ -208,6 +209,15 @@ component DFF_oneBit IS
 			q : OUT std_logic
 		);
 END component;
+
+component hazard_detection is
+Port (
+IDEX_Out: in std_logic_vector(69 downto 0);
+IFID_Out: in std_logic_vector(31 downto 0);
+hazard_detect: out std_logic
+);
+end component;
+
 -- /*=== End ====*/ --
 signal flush: std_logic;
 -- fetch stage signals --
@@ -227,6 +237,8 @@ signal controlSignals: std_logic_vector(18 downto 0);
 signal IDEX_Out: std_logic_vector(69 downto 0);
 signal decode_execute_source2: std_logic_vector(15 downto 0);
 signal conrtol_zero_flag_out, conrtol_negative_flag_out, conrtol_carry_flag_out: std_logic;
+signal hazard_detect: std_logic;
+signal decode_muxOfControlAndHazardUnit_IDIX: std_logic_vector(18 downto 0);
 
 -- ALU stage --
 signal ALU_out: std_logic_vector(15 downto 0);
@@ -275,7 +287,7 @@ flush <= jump_execute or reset;
 -- fetch stage --
 
 instruction_pointer: DFF generic map(20) port map(fetchStage_mux_ip, clk, reset, '1', fetchStage_ip_instMemory);
-fetch_stage: fetch port map(fetchStage_ip_instMemory, jump_execute, jmpinst, fetchStage_mux_ip, fetchStage_instMemory_IF_ID);
+fetch_stage: fetch port map(fetchStage_ip_instMemory, jump_execute, jmpinst, fetchStage_mux_ip, fetchStage_instMemory_IF_ID, hazard_detect);
 if_id: IFID generic map(32) port map('1', clk, reset, fetchStage_ip_instMemory(15 downto 0), fetchStage_instMemory_IF_ID, decodeStage_IF_ID_out, IF_ID_Out_IP);
 
 -- decoding stage --
@@ -288,6 +300,10 @@ controlU : controlUnit generic map(16) port map(hazardDetect, decodeStage_IF_ID_
 --	else decodeStage_IF_ID_out(17 downto 2);
 
 id_ex: IDEX generic map(16) port map('1', clk, reset, IF_ID_Out_IP, decodeStage_IF_ID_out(31 downto 27), decodeStage_registerFileOut1_ID_IE,decodeStage_registerFileOut2_ID_IE, decodeStage_IF_ID_out(20 downto 18), controlSignals, decodeStage_IF_ID_out(17 downto 2),conrtol_zero_flag_out,conrtol_negative_flag_out,conrtol_carry_flag_out, IDEX_Out,zero_enable, negative_enable,carry_enable , opcode_execution, ID_EX_IP_Out);
+hd: hazard_detection port map(IDEX_Out, decodeStage_IF_ID_out, hazard_detect);
+decode_muxOfControlAndHazardUnit_IDIX <= controlSignals when hazard_detect = '0'
+	else (Others => '0');
+
 
 ------------------------- EXECUTION stage ---------------------
 ALU_input2 <= IDEX_Out(15 downto 0) when IDEX_Out(34) = '0' --immediate value in operand 2 if it is used
