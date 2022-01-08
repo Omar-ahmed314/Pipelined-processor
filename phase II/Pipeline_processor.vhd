@@ -238,6 +238,7 @@ signal IDEX_Out: std_logic_vector(69 downto 0);
 signal decode_execute_source2: std_logic_vector(15 downto 0);
 signal conrtol_zero_flag_out, conrtol_negative_flag_out, conrtol_carry_flag_out: std_logic;
 signal hazard_detect: std_logic;
+signal not_hazard_detect: std_logic;
 signal decode_muxOfControlAndHazardUnit_IDIX: std_logic_vector(18 downto 0);
 
 -- ALU stage --
@@ -288,8 +289,8 @@ flush <= jump_execute or reset;
 
 instruction_pointer: DFF generic map(20) port map(fetchStage_mux_ip, clk, reset, '1', fetchStage_ip_instMemory);
 fetch_stage: fetch port map(fetchStage_ip_instMemory, jump_execute, jmpinst, fetchStage_mux_ip, fetchStage_instMemory_IF_ID, hazard_detect);
-if_id: IFID generic map(32) port map('1', clk, reset, fetchStage_ip_instMemory(15 downto 0), fetchStage_instMemory_IF_ID, decodeStage_IF_ID_out, IF_ID_Out_IP);
-
+if_id: IFID generic map(32) port map(not_hazard_detect, clk, reset, fetchStage_ip_instMemory(15 downto 0), fetchStage_instMemory_IF_ID, decodeStage_IF_ID_out, IF_ID_Out_IP);
+not_hazard_detect <= not hazard_detect;
 -- decoding stage --
 hazardDetect <= '0';
 
