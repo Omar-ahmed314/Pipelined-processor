@@ -26,7 +26,8 @@ ip_in : in std_logic_vector(19 downto 0);
 jumpinstSel: in std_logic;
 jumpinst: in std_logic_vector(19 downto 0);
 ip_out: out std_logic_vector(19 downto 0);
-instruction : out std_logic_vector(31 downto 0));
+instruction : out std_logic_vector(31 downto 0);
+hazard_detect: in std_logic);
 
 end component;
 
@@ -108,14 +109,17 @@ GENERIC ( n : INTEGER := 32 );
 		opcode_in: std_logic_vector(4 downto 0);
 		Rs, Rt: in std_logic_vector(n-1 downto 0);
 		Rd_address: in std_logic_vector(2 downto 0);
+		Rs_address, Rt_address: in std_logic_vector(2 downto 0);
 		control_signls: in std_logic_vector(18 downto 0);
 		imm_value: in std_logic_vector(15 downto 0);
 		zf,nf,cf: in std_logic;
 		output: out std_logic_vector(69 downto 0);
 		zfOut, nfOut, cfOut: out std_logic;
 		opcode_out: out std_logic_vector(4 downto 0);
-		ip_out: out std_logic_vector(15 downto 0)
+		ip_out: out std_logic_vector(15 downto 0);
+		Rs_address_out, Rt_address_out: out std_logic_vector(2 downto 0)
 		);
+
 end component;
 
 component ALSU is
@@ -208,6 +212,21 @@ component DFF_oneBit IS
 			q : OUT std_logic
 		);
 END component;
+
+component hazard_detection is
+Port (
+IDEX_Out: in std_logic_vector(69 downto 0);
+IFID_Out: in std_logic_vector(31 downto 0);
+hazard_detect: out std_logic
+);
+end component;
+
+component forward_unit is
+port(	rSrc1, rSrc2, rDstAlu, rDstMem: in std_logic_vector(2 downto 0);
+	alu_wb_ctrl, mem_wb_ctrl:	in std_logic;
+	select1, select2: 		out std_logic_vector(1 downto 0));
+end component;
+
 -- /*=== End ====*/ --
 signal flush: std_logic;
 -- fetch stage signals --
@@ -227,6 +246,9 @@ signal controlSignals: std_logic_vector(18 downto 0);
 signal IDEX_Out: std_logic_vector(69 downto 0);
 signal decode_execute_source2: std_logic_vector(15 downto 0);
 signal conrtol_zero_flag_out, conrtol_negative_flag_out, conrtol_carry_flag_out: std_logic;
+signal hazard_detect: std_logic;
+signal not_hazard_detect: std_logic;
+signal decode_muxOfControlAndHazardUnit_IDIX: std_logic_vector(18 downto 0);
 
 -- ALU stage --
 signal ALU_out: std_logic_vector(15 downto 0);
@@ -245,6 +267,12 @@ signal opcode_execution: std_logic_vector(4 downto 0);
 signal branch_address: std_logic_vector(15 downto 0);
 signal execute_branch: std_logic;
 signal ID_EX_IP_Out: std_logic_vector(15 downto 0);
+signal forward_mux_alu_input1: std_logic_vector(15 downto 0);
+signal forward_mux_alu_input2: std_logic_vector(15 downto 0);
+signal Rsrc1_address: std_logic_vector(2 downto 0);
+signal Rsrc2_address: std_logic_vector(2 downto 0);
+signal forward_mux_selection1: std_logic_vector(1 downto 0);
+signal forward_mux_selection2: std_logic_vector(1 downto 0);
 
 signal jump_execute_ex : std_logic;
 signal jmpinst_ex: std_logic_vector(19 downto 0);
@@ -275,9 +303,9 @@ flush <= jump_execute or reset;
 -- fetch stage --
 
 instruction_pointer: DFF generic map(20) port map(fetchStage_mux_ip, clk, reset, '1', fetchStage_ip_instMemory);
-fetch_stage: fetch port map(fetchStage_ip_instMemory, jump_execute, jmpinst, fetchStage_mux_ip, fetchStage_instMemory_IF_ID);
-if_id: IFID generic map(32) port map('1', clk, reset, fetchStage_ip_instMemory(15 downto 0), fetchStage_instMemory_IF_ID, decodeStage_IF_ID_out, IF_ID_Out_IP);
-
+fetch_stage: fetch port map(fetchStage_ip_instMemory, jump_execute, jmpinst, fetchStage_mux_ip, fetchStage_instMemory_IF_ID, hazard_detect);
+if_id: IFID generic map(32) port map(not_hazard_detect, clk, reset, fetchStage_ip_instMemory(15 downto 0), fetchStage_instMemory_IF_ID, decodeStage_IF_ID_out, IF_ID_Out_IP);
+not_hazard_detect <= not hazard_detect;
 -- decoding stage --
 hazardDetect <= '0';
 
@@ -287,7 +315,11 @@ controlU : controlUnit generic map(16) port map(hazardDetect, decodeStage_IF_ID_
 --decode_execute_source2 <= decodeStage_registerFileOut2_ID_IE when controlSignals(2) = '0'
 --	else decodeStage_IF_ID_out(17 downto 2);
 
-id_ex: IDEX generic map(16) port map('1', clk, reset, IF_ID_Out_IP, decodeStage_IF_ID_out(31 downto 27), decodeStage_registerFileOut1_ID_IE,decodeStage_registerFileOut2_ID_IE, decodeStage_IF_ID_out(20 downto 18), controlSignals, decodeStage_IF_ID_out(17 downto 2),conrtol_zero_flag_out,conrtol_negative_flag_out,conrtol_carry_flag_out, IDEX_Out,zero_enable, negative_enable,carry_enable , opcode_execution, ID_EX_IP_Out);
+id_ex: IDEX generic map(16) port map('1', clk, reset, IF_ID_Out_IP, decodeStage_IF_ID_out(31 downto 27), decodeStage_registerFileOut1_ID_IE,decodeStage_registerFileOut2_ID_IE, decodeStage_IF_ID_out(20 downto 18), decodeStage_IF_ID_out(26 downto 24), decodeStage_IF_ID_out(23 downto 21), controlSignals, decodeStage_IF_ID_out(17 downto 2),conrtol_zero_flag_out,conrtol_negative_flag_out,conrtol_carry_flag_out, IDEX_Out,zero_enable, negative_enable,carry_enable , opcode_execution, ID_EX_IP_Out, Rsrc1_address, Rsrc2_address);
+hd: hazard_detection port map(IDEX_Out, decodeStage_IF_ID_out, hazard_detect);
+decode_muxOfControlAndHazardUnit_IDIX <= controlSignals when hazard_detect = '0'
+	else (Others => '0');
+
 
 ------------------------- EXECUTION stage ---------------------
 ALU_input2 <= IDEX_Out(15 downto 0) when IDEX_Out(34) = '0' --immediate value in operand 2 if it is used
@@ -295,7 +327,16 @@ ALU_input2 <= IDEX_Out(15 downto 0) when IDEX_Out(34) = '0' --immediate value in
 ALU_input1 <= IDEX_Out(15 downto 0) when IDEX_Out(49) = '1' ---for store instruction: src2 is in operand1 to be added with offset in operand 2
 	   else IDEX_Out(31 downto 16);
 
-ALSU_Stage : ALSU generic map(16) port map(ALU_input1, ALU_input2, IDEX_Out(46 downto 43),ALU_out,ALU_cout,'0');
+forward_mux_alu_input1 <= EXMEM_Out(37 downto 22) when forward_mux_selection1 = "01"
+	else writeBackStage_IM_IWB_registerFile_writeData when forward_mux_selection1 = "10"
+	else ALU_input1;
+
+forward_mux_alu_input2 <= EXMEM_Out(37 downto 22) when forward_mux_selection2 = "01"
+	else writeBackStage_IM_IWB_registerFile_writeData when forward_mux_selection2 = "10"
+	else ALU_input2;
+
+forwardUnit : forward_unit port map(Rsrc1_address, Rsrc2_address, EXMEM_Out(21 downto 19), writeBackStage_IM_IWB_registerFile_dataAddress, EXMEM_Out(4), wb_enable, forward_mux_selection1, forward_mux_selection2);
+ALSU_Stage : ALSU generic map(16) port map(forward_mux_alu_input1, forward_mux_alu_input2, IDEX_Out(46 downto 43),ALU_out,ALU_cout,'0');
 carry_signal <= '1' when IDEX_out(40) = '1'
 		else ALU_cout;
 flags_stage : flags generic map(16) port map(ALU_out, carry_signal,CRR_Out, CCR);
