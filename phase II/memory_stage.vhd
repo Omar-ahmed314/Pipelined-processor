@@ -6,7 +6,6 @@ entity memoryStage is
 
 port(
 	--memoryEnabled: in std_logic;
-=======
 	clk : IN std_logic;
 	wb : IN std_logic;
 	reset: in std_logic;
