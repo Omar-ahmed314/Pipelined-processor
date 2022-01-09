@@ -4,7 +4,8 @@ import unittest as ut
 
 def line_formater(line):
     line = line.strip().lower()
-    line = re.split('[\s,()]', line)
+    line = re.split('#', line)
+    line = re.split('[\s,()]', line[0])
     line = [ i for i in line if i != '' ]
     return line
 
@@ -17,6 +18,8 @@ def main():
     # THE COMPILED FILE
     assembled_file = open(argv[2], 'w')
     for line in source_code:
+        if line == '\n' or line[0] == '#':
+            continue
         line_array = line_formater(line)
         op_code = line_array[0]
         output_line = ''
@@ -118,6 +121,10 @@ class testing (ut.TestCase):
     def test_get_register_number(self):
         number = '0000000000000001'
         self.assertEqual(get_register_number('1', 16), number)
+
+    def test_line_formater_for_comment(self):
+        arr = ['mov', '1', '2', '3']
+        self.assertEqual(line_formater("mov 1, 2, 3 # this is the first code line"), arr)
 
 if __name__ == '__main__':
     main()

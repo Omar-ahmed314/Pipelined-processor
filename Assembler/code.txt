@@ -1,6 +1,3 @@
-nop
-ldd 1, 1(2)
 add 2, 1, 1
-nop
-nop
-nop
+# this code is for operation
+add 2, 1, 1 # this add is responsible for something i donnot know
