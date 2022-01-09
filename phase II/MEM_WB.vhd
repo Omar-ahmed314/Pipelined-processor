@@ -10,7 +10,7 @@ entity MEMWB is
 GENERIC ( n : INTEGER := 16 );
 
 	port( 
-		we, clk, reset: in std_logic;
+		we, clk, reset, flush: in std_logic;
 		alu_data: in std_logic_vector(n-1 downto 0); 
 		mem_data: in std_logic_vector(n-1 downto 0); 
 		dest_address:in std_logic_vector(2 downto 0);

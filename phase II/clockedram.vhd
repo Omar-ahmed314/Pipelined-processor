@@ -2,16 +2,6 @@ LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.numeric_std.all;
 
-ENTITY ram IS
-	PORT(
-		we  : IN std_logic;
-		address : IN  std_logic_vector(19 DOWNTO 0);
-		isSixteen : IN std_logic;
-		isDataMemory: IN std_logic;
-		datain  : IN  std_logic_vector(31 DOWNTO 0);
-		dataout : OUT std_logic_vector(31 DOWNTO 0));
-END ENTITY ram;
-
 ENTITY clockedram IS
 	PORT(
 		clk : IN std_logic;
@@ -23,16 +13,17 @@ ENTITY clockedram IS
 		dataout : OUT std_logic_vector(31 DOWNTO 0));
 END ENTITY clockedram;
 
-ARCHITECTURE syncrama OF ram IS
+
+ARCHITECTURE syncrama OF clockedram IS
 
 	TYPE ram_type IS ARRAY(0 TO 1048575) OF std_logic_vector(15 DOWNTO 0);
 	SIGNAL ram : ram_type;
 signal temp: std_logic_vector(19 downto 0);
 	
 	BEGIN
-		PROCESS(we,isSixteen,datain,address) IS
+		PROCESS(clk, we,isSixteen,datain,address) IS
 			BEGIN
-					IF we = '1' THEN
+					IF (falling_edge(clk) and we = '1') THEN
 						ram(to_integer(unsigned(address))) <= datain(15 downto 0);
 						IF isSixteen = '0' THEN
 							ram(to_integer(unsigned(address))-1) <= datain(31 downto 16);

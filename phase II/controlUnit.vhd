@@ -71,6 +71,7 @@ begin
 				alu_selection <= "0000";
 				flagChange <= '1';
 				WB_EN <= '1';
+				cFlag <= '1';
 				nFlag <= '1';	
 				zFlag <= '1';
 			elsif(opCode = "00101") then -- OUT

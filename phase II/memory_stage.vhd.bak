@@ -6,6 +6,9 @@ entity memoryStage is
 
 port(
 	--memoryEnabled: in std_logic;
+=======
+	clk : IN std_logic;
+	wb : IN std_logic;
 	reset: in std_logic;
 	isStack: in std_logic;
 	isPush: in std_logic;
@@ -25,6 +28,7 @@ Architecture struct of memoryStage is
 
 COMPONENT ram IS
 	PORT(
+		
 		we  : IN std_logic;
 		address : IN  std_logic_vector(19 DOWNTO 0);
 		isSixteen : IN std_logic;
@@ -34,6 +38,16 @@ COMPONENT ram IS
 		
 		);
 END COMPONENT;
+component clockedram IS
+	PORT(
+		clk : IN std_logic;
+		we  : IN std_logic;
+		address : IN  std_logic_vector(19 DOWNTO 0);
+		isSixteen : IN std_logic;
+		isDataMemory: IN std_logic;
+		datain  : IN  std_logic_vector(31 DOWNTO 0);
+		dataout : OUT std_logic_vector(31 DOWNTO 0));
+END component;
 
 COMPONENT n_bit_full_adder is
 generic(n: integer:= 8);
@@ -78,6 +92,23 @@ begin
 	accessAddress <= "00001" when reset = '1'
 		else x"00003" when ((isStack ='1' or isFunction='1') and isPush ='0' and isStore ='0' and spIn = x"000FFFFF")
 		else x"00005" when ((isStack ='0' and isFunction='0') and addressComparison(31) = '1')
+	--we <= '0' when isException ='1' or (isPush ='0' and isStore ='0')
+		--else '1' when (isPush ='1' or isStore ='1') and isException ='0'
+		--else '0';
+
+	addressComparison <= std_logic_vector(65280-(signed(address)));
+
+	isException <= '1' when ((isStack ='1' or isFunction='1') and isPush ='0' and isStore ='0' and spIn = x"000FFFFF") or (((isStack ='0' and isFunction='0') and (isStore='1' or wb='1'))  and addressComparison(31) = '1' )
+			else '0';
+	
+	
+	we <= '1' when (isPush ='1' or isStore ='1') and isException ='0'
+           else  '0';
+
+
+	accessAddress <= x"00001" when reset = '1'
+		else x"00003" when ((isStack ='1' or isFunction='1') and isPush ='0' and isStore ='0' and spIn = x"000FFFFF")
+		else x"00005" when (((isStack ='0' and isFunction='0') and (isStore='1' or wb='1'))  and addressComparison(31) = '1' )
 		else spIn(19 downto 0) when isPush ='1'
 		else spOutResult(19 downto 0) when (isStack = '1' or isFunction = '1') and isPush = '0'
 		else address(19 downto 0);
