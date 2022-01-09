@@ -2,6 +2,12 @@ import re
 from sys import argv
 import unittest as ut
 
+def is_line_empty(line):
+    return line.strip() == ''
+
+def is_line_comment(line):
+    return line.strip()[0] == '#'
+
 def line_formater(line):
     line = line.strip().lower()
     line = re.split('#', line)
@@ -10,13 +16,17 @@ def line_formater(line):
     return line
 
 def get_register_number(register, size):
-    return bin(int(register) + 2 ** 16)[size * -1: ]
+    return bin(int(register, 16) + 2 ** 16)[size * -1: ]
 
 def main():
     # THE CODE FILE
     source_code = open(argv[1], 'r')
     # THE COMPILED FILE
     assembled_file = open(argv[2], 'w')
+    # THE COMPILED ARRAY 
+    memory_file = open(argv[3], 'w')
+    assembled_lines = []
+    memory_lines = []
     for line in source_code:
         if line == '\n' or line[0] == '#':
             continue
@@ -24,7 +34,19 @@ def main():
         op_code = line_array[0]
         output_line = ''
         if op_code == 'nop':
-            output_line += 16 * '0'
+            output_line = 16 * '0'
+
+        elif op_code.isdigit():
+            output_line = get_register_number(op_code, 16)
+
+        elif op_code == '.org':
+            length = len(assembled_lines)
+            for i in range(int(line_array[1]) - length):
+                assembled_lines.append(16 * '0' + '\n')
+
+            for i in range(int(line_array[1]) - length):
+                memory_lines.append(16 * '0' + '\n')
+            continue
 
         elif op_code == 'hlt':
             output_line += '00001'
@@ -86,23 +108,30 @@ def main():
 
         # branch
         elif op_code == 'jz':
-            output_line += '11000'
+            output_line = '11000' + get_register_number(line_array[1], 3) + 8 * '0'
         elif op_code == 'jn':
-            output_line += '11001'
-        elif op_code == 'jz':
-            output_line += '11010'
+            output_line = '11001'+ get_register_number(line_array[1], 3) + 8 * '0' 
+        elif op_code == 'jc':
+            output_line = '11010'+ get_register_number(line_array[1], 3) + 8 * '0'
         elif op_code == 'jmp':
-            output_line += '11011'
+            output_line = '11011'+ get_register_number(line_array[1], 3) + 8 * '0'
         elif op_code == 'call':
-            output_line += '11100'
+            output_line = '11100'+ get_register_number(line_array[1], 3) + 8 * '0'
         elif op_code == 'ret':
-            output_line += '11101'
+            output_line = '11101' + 11 * '0'
         elif op_code == 'int':
-            output_line += '11110'
-        elif op_code == 'rt':
-            output_line += '11111'
+            output_line = '11110'+ get_register_number(line_array[1], 3) + 8 * '0'
+        elif op_code == 'rti':
+            output_line = '11111' + 11 * '0'
         
-        assembled_file.write(output_line + '\n')
+        if op_code.isdigit():
+            memory_lines.append(16 * '0' + '\n')
+            memory_lines.append(output_line + '\n')
+        else:
+            assembled_lines.append(output_line + '\n')
+
+    memory_file.writelines(memory_lines)
+    assembled_file.writelines(assembled_lines)    
     print("DONE...")
 
 class testing (ut.TestCase):
@@ -125,6 +154,13 @@ class testing (ut.TestCase):
     def test_line_formater_for_comment(self):
         arr = ['mov', '1', '2', '3']
         self.assertEqual(line_formater("mov 1, 2, 3 # this is the first code line"), arr)
+
+    def test_line_formater_for_comment(self):
+        arr = ['jmp', '1'] 
+        self.assertEqual(line_formater("JMP 1"), arr)
+    
+    def test_is_line_comment(self): 
+        self.assertTrue(is_line_empty(" "))
 
 if __name__ == '__main__':
     main()

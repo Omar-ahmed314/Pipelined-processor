@@ -39,7 +39,16 @@ GENERIC ( n : INTEGER := 32 );
 			q : OUT std_logic_vector(n - 1 downto 0)
 		);
 		end component;
+component NDFF IS 
 
+GENERIC ( n : INTEGER := 32 );
+
+	PORT( 
+			d: in std_logic_vector(n - 1 downto 0);
+			clk,reset,en : IN std_logic;
+			q : OUT std_logic_vector(n - 1 downto 0)
+		);
+END component;
 signal re : std_logic;
 signal decROut1, decROut2, decWOut1 : std_logic_vector(7 downto 0);
 
@@ -54,14 +63,14 @@ begin
 	decRead2: decoder generic map (n) port map (src2,re,decROut2);
 	decWrite1: decoder generic map (n) port map (dest,writeEn,decWOut1);
 
-	reg1 : DFF generic map (n) port map (writeVal, clk, rst, decWOut1(0), regFile(0));	
-	reg2 : DFF generic map (n) port map (writeVal, clk, rst, decWOut1(1), regFile(1));	
-	reg3 : DFF generic map (n) port map (writeVal, clk, rst, decWOut1(2), regFile(2));	
-	reg4 : DFF generic map (n) port map (writeVal, clk, rst, decWOut1(3), regFile(3));	
-	reg5 : DFF generic map (n) port map (writeVal, clk, rst, decWOut1(4), regFile(4));	
-	reg6 : DFF generic map (n) port map (writeVal, clk, rst, decWOut1(5), regFile(5));	
-	reg7 : DFF generic map (n) port map (writeVal, clk, rst, decWOut1(6), regFile(6));	
-	reg8 : DFF generic map (n) port map (writeVal, clk, rst, decWOut1(7), regFile(7));	
+	reg1 : NDFF generic map (n) port map (writeVal, clk, rst, decWOut1(0), regFile(0));	
+	reg2 : NDFF generic map (n) port map (writeVal, clk, rst, decWOut1(1), regFile(1));	
+	reg3 : NDFF generic map (n) port map (writeVal, clk, rst, decWOut1(2), regFile(2));	
+	reg4 : NDFF generic map (n) port map (writeVal, clk, rst, decWOut1(3), regFile(3));	
+	reg5 : NDFF generic map (n) port map (writeVal, clk, rst, decWOut1(4), regFile(4));	
+	reg6 : NDFF generic map (n) port map (writeVal, clk, rst, decWOut1(5), regFile(5));	
+	reg7 : NDFF generic map (n) port map (writeVal, clk, rst, decWOut1(6), regFile(6));	
+	reg8 : NDFF generic map (n) port map (writeVal, clk, rst, decWOut1(7), regFile(7));	
 	
 	out1 <= regFile(0) when decROut1(0)='1' else
 	regFile(1) when decROut1(1)='1' else
