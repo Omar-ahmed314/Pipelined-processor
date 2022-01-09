@@ -7,7 +7,9 @@ pipeline-based processor simualtion with **VHDL** language, that contains five p
 * Write Back Stage
 
 ## Processor Diagram
-!["diagram"](phase I/project diagram.jpg)
+The initial diagram that changed a lot further 😅
+!["diagram"](Images/project_diagram.jpg)
 
----
+## Simulation
+Using modelsim
 !["img"](Images/gifFile.gif)
